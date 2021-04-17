@@ -1,0 +1,71 @@
+input,
+textarea
+{
+  background-color: transparent;
+  border: 0;
+
+  &:hover,
+  &:focus
+  {
+    background-color: $input-focus-background;
+    border: 1px solid $input-focus-border;
+  }
+}
+
+textarea
+{
+  resize: none;
+}
+
+h1
+{
+  border-bottom: 0;
+}
+
+.section-header
+{
+  padding: 0 1rem;
+  background-color: $h1-background;
+  color: $h1-text;
+
+  h1
+  {
+    @extend h1;
+  }
+
+  .item-add
+  {
+    line-height: 2rem;
+  }
+}
+
+.actor-items
+{
+  list-style: none;
+
+  & > .actor-item
+  {
+    list-style-type: none;
+    line-height: toRem(24px);
+  }
+}
+
+.health,
+.experience
+{
+  line-height: toRem(26px);
+}
+
+.character
+{
+  .property
+  {
+    @extend .health;
+    margin: toRem(8px) 0;
+
+    & > label:not(.d-inline-block)
+    {
+      width: 25%;
+    }
+  }
+}

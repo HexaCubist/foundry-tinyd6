@@ -1,0 +1,15 @@
+/** Facilitate a bootstrap grid */
+@import "../node_modules/bootstrap/scss/bootstrap-grid";
+
+@import "common/variables";
+@import "common/functions";
+@import "common/mixins";
+
+.tinyd6
+{
+  @import "partial/trait-block";
+
+  @import "sheet/common";
+  @import "sheet/npc";
+  @import "sheet/hero";
+}

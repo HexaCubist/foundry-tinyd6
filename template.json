@@ -1,0 +1,94 @@
+{
+  "Actor": {
+    "types": [
+      "hero",
+      "npc"
+    ],
+    "templates": {
+      "commonStats": {
+        "name": "",
+        "health": {
+          "value": 12,
+          "max": 12
+        },
+        "traits": {},
+        "description": ""
+      },
+      "namedCharacter": {
+        "heritage": {},
+        "people": "",
+        "homeland": "",
+        "age": "",
+        "eyes": "",
+        "hair": "",
+        "familyTrade": "",
+        "belief": "",
+        "xp": {
+          "max": 0,
+          "spent": 0
+        },
+        "proficiencies": {
+          "light": false,
+          "heavy": false,
+          "ranged": false,
+          "masteredWeapons": ""
+        },
+        "gear": {}
+      }
+    },
+    "hero": {
+      "templates": [ "commonStats", "namedCharacter" ]
+    },
+    "npc": {
+      "templates": [ "commonStats" ]
+    }
+  },
+  "Item": {
+    "types": [
+      "weapon",
+      "armor",
+      "gear",
+      "heritage",
+      "trait"
+    ],
+    "templates": {
+      "itemDescription": {
+        "description": ""
+      },
+      "slots": {
+        "value": 1
+      },
+      "depletion": {
+        "value": 0
+      },
+      "quantity": {
+        "value": 0
+      },
+      "proficiencyGroup": {
+        "group": ""
+      },
+      "equipment": {
+        "equipped": false
+      }
+    },
+    "weapon": {
+      "templates": [ "slots", "itemDescription", "proficiencyGroup", "equipment" ],
+      "damage": 1
+    },
+    "armor": {
+      "templates": [ "slots", "itemDescription", "depletion", "proficiencyGroup", "equipment" ],
+      "damageReduction": 1
+    },
+    "gear": {
+      "templates": [ "slots", "itemDescription", "depletion", "quantity" ]
+    },
+    "heritage": {
+      "templates": [ "itemDescription" ],
+      "trait": "",
+      "startingHealth": 6
+    },
+    "trait": {
+      "templates": [ "itemDescription" ]
+    }
+  }
+}

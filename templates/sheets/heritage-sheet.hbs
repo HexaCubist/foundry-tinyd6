@@ -1,0 +1,15 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{localize "tinyd6.trait.name"}}"/></h1>
+    </header>
+    <div class="d-flex">
+        <label class="mr-2">{{localize "tinyd6.heritage.startingHealth"}}</label>
+        <input name="data.startingHealth" type="text" value="{{data.startingHealth}}" placeholder="{{localize "tinyd6.heritage.startingHealth"}}" dType="Number"/>
+    </div>
+    <h2 class="section-header">{{localize "tinyd6.sheet.description"}}</h2>
+    <textarea name="data.description">{{data.description}}</textarea>
+
+    <h2 class="section-header">{{localize "tinyd6.heritage.trait"}}</h2>
+    <textarea name="data.trait">{{data.trait}}</textarea>
+</form>

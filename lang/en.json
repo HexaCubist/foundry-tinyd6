@@ -1,0 +1,105 @@
+{
+  "tinyd6": {
+    "system": {
+      "name": "Tiny D6 2e"
+    },
+    "dice": {
+      "roll": {
+        "disadvantage": "Disadvantage",
+        "standard": "Standard Test",
+        "advantage": "Advantage"
+      }
+    },
+    "sheet": {
+      "newItem": "New Item",
+      "description": "Description"
+    },
+    "actor": {
+      "character": "Character",
+      "name": "Name",
+      "people": "People",
+      "traits": "Traits",
+      "heritage": {
+        "header": "Heritage",
+        "traits": "Heritage Trait"
+      },
+      "homeland": "Homeland",
+      "age": "Age",
+      "eyes": "Eyes",
+      "hair": "Hair",
+      "familyTrade": "Family Trade",
+      "belief": "Belief",
+      "xp": {
+        "header": "Experience",
+        "total": "Total",
+        "spent": "Spent",
+        "remaining": "Remaining"
+      },
+      "health": {
+        "header": "Health",
+        "current": "Current",
+        "max": "Total"
+      },
+      "proficiencies": {
+        "header": "Weapon Proficiencies",
+        "mastered": "Mastered Weapons"
+      },
+      "gear": "Inventory",
+      "equipped": "Equipped",
+      "weaponry": "Weaponry",
+      "wearing": "Wearing",
+      "actions": {
+        "editTrait": "Edit Trait",
+        "deleteTrait": "Remove Trait"
+      }
+    },
+    "weaponTypes": {
+      "none": "",
+      "light": "Light Melee",
+      "heavy": "Heavy Melee",
+      "ranged": "Ranged"
+    },
+    "armorTypes": {
+      "none": "",
+      "light": "Light",
+      "medium": "Medium",
+      "heavy": "Heavy"
+    },
+    "weapon": {
+      "name": "Name",
+      "type": "Weapon Type",
+      "damage": "Damage",
+      "slots": "Item Slots",
+      "description": "Description",
+      "light": "Light",
+      "heavy": "Heavy",
+      "ranged": "Ranged",
+      "lightShort": "L",
+      "heavyShort": "H",
+      "rangedShort": "R"
+    },
+    "armor": {
+      "name": "Name",
+      "type": "Armor Type",
+      "damageReduction": "DR",
+      "slots": "Item Slots",
+      "depletion": "Depletion",
+      "description": "Description"
+    },
+    "gear": {
+      "name": "Name",
+      "slots": "Item Slots",
+      "depletion": "Depletion",
+      "quantity": "Quantity",
+      "description": "Description"
+    },
+    "heritage": {
+      "trait": "Heritage Trait",
+      "startingHealth": "Starting Hit Points"
+    },
+    "trait": {
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

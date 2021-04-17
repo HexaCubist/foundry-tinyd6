@@ -1,0 +1,47 @@
+.sheet-header
+{
+  .character-art,
+  .logo
+  {
+    max-height: toRem(64px);
+  }
+
+  .logo
+  {
+    border: 0;
+  }
+}
+
+.health
+{
+  
+}
+
+.actor-item
+{
+  .item-equip
+  {
+    &.equipped
+    {
+      color: $item-equipped-color;
+    }
+  }
+}
+
+#inventory
+{
+  margin-bottom: toRem(64px);
+  
+  .equipped-weapon
+  {
+    .weapon-name
+    {
+      text-align: center;
+    }
+
+    label
+    {
+      font-size: 0.8rem;
+    }
+  }
+}
