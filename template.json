@@ -7,8 +7,8 @@
     "templates": {
       "commonStats": {
         "name": "",
-        "health": {
-          "value": 12,
+        "wounds": {
+          "value": 0,
           "max": 12
         },
         "traits": {},
@@ -34,10 +34,13 @@
           "masteredWeapons": ""
         },
         "gear": {}
+      },
+      "hero": {
+        "corruptionThreshold": 6
       }
     },
     "hero": {
-      "templates": [ "commonStats", "namedCharacter" ]
+      "templates": [ "commonStats", "namedCharacter", "hero" ]
     },
     "npc": {
       "templates": [ "commonStats" ]
@@ -65,6 +68,7 @@
         "value": 0
       },
       "proficiencyGroup": {
+        "damageType": "",
         "group": ""
       },
       "equipment": {
@@ -85,7 +89,8 @@
     "heritage": {
       "templates": [ "itemDescription" ],
       "trait": "",
-      "startingHealth": 6
+      "startingHealth": 6,
+      "corruptionThreshold": 6
     },
     "trait": {
       "templates": [ "itemDescription" ]

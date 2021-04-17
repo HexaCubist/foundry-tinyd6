@@ -19,9 +19,17 @@
       "name": "Name",
       "people": "People",
       "traits": "Traits",
-      "heritage": {
-        "header": "Heritage",
-        "traits": "Heritage Trait"
+      "tiny-cthulhu": {
+        "heritage": {
+          "header": "Archetype",
+          "traits": "Archetype Trait"
+        }
+      },
+      "tiny-dungeon": {
+        "heritage": {
+          "header": "Heritage",
+          "traits": "Heritage Trait"
+        }
       },
       "homeland": "Homeland",
       "age": "Age",
@@ -35,7 +43,7 @@
         "spent": "Spent",
         "remaining": "Remaining"
       },
-      "health": {
+      "wounds": {
         "header": "Health",
         "current": "Current",
         "max": "Total"
@@ -50,14 +58,19 @@
       "wearing": "Wearing",
       "actions": {
         "editTrait": "Edit Trait",
-        "deleteTrait": "Remove Trait"
+        "deleteTrait": "Remove Trait",
+        "deleteHeritage": "Remove Heritage"
       }
+    },
+    "weaponCategories":
+    {
+      "melee": "Melee",
+      "ranged": "Ranged"
     },
     "weaponTypes": {
       "none": "",
-      "light": "Light Melee",
-      "heavy": "Heavy Melee",
-      "ranged": "Ranged"
+      "light": "Light",
+      "heavy": "Heavy"
     },
     "armorTypes": {
       "none": "",
@@ -76,6 +89,7 @@
       "ranged": "Ranged",
       "lightShort": "L",
       "heavyShort": "H",
+      "meleeShort": "M",
       "rangedShort": "R"
     },
     "armor": {
@@ -95,7 +109,8 @@
     },
     "heritage": {
       "trait": "Heritage Trait",
-      "startingHealth": "Starting Hit Points"
+      "startingHealth": "Starting HP",
+      "corruptionThreshold": "Corruption Threshold"
     },
     "trait": {
       "name": "Name",

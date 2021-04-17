@@ -7,8 +7,13 @@ tinyd6.defaultItemImage = "icons/svg/mystery-man.svg";
 tinyd6.weaponTypes = {
     none: "",
     light: "tinyd6.weaponTypes.light",
-    heavy: "tinyd6.weaponTypes.heavy",
-    ranged:"tinyd6.weaponTypes.ranged"
+    heavy: "tinyd6.weaponTypes.heavy"
+}
+
+tinyd6.weaponCategories = {
+    none: "",
+    melee: "tinyd6.weaponCategories.melee",
+    ranged: "tinyd6.weaponCategories.ranged"
 }
 
 tinyd6.armorTypes = {

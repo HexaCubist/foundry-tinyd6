@@ -11,9 +11,16 @@
         </tr>
         <tr>
             <td>
+                <select name="data.damageType">
+                    {{#select data.damageType}}
+                        {{#each config.weaponTypes as |name type|}}
+                            <option value="{{type}}">{{localize name}}</option>
+                        {{/each}}
+                    {{/select}}
+                </select>
                 <select name="data.group">
                     {{#select data.group}}
-                        {{#each config.weaponTypes as |name type|}}
+                        {{#each config.weaponCategories as |name type|}}
                             <option value="{{type}}">{{localize name}}</option>
                         {{/each}}
                     {{/select}}

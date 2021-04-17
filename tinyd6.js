@@ -12,6 +12,23 @@ async function preloadHandlebarsTemplates() {
     return loadTemplates(templatePaths);
 };
 
+Hooks.on("createOwnedItem", (actor, item) => {
+    console.log("tinyd6 | handling owned item");
+
+    if (item.type === "heritage")
+    {
+        actor.update({
+            _id: actor._id,
+            data: {
+                wounds: {
+                    max: item.data.startingHealth
+                },
+                corruptionThreshold: item.data.corruptionThreshold
+            }
+        });
+    }
+});
+
 Hooks.once("init", () => {
     console.log("tinyd6 | Initializing Tiny D6 system");
 

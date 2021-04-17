@@ -5,6 +5,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
         const data = super.getData();
 
         data.config = CONFIG.tinyd6;
+        data.config.heritageHeaderPath = `tinyd6.actor.${data.config.theme}.heritage.header`;
         data.traits = data.items.filter(item => { return item.type === "trait" });
         data.weapons = data.items.filter(item => { return item.type === "weapon" && item.data.equipped });
         data.armor = data.items.filter(item => { return item.type === "armor" && item.data.equipped });
@@ -50,7 +51,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
     {
         event.preventDefault();
         let element = event.currentTarget;
-        let itemId = element.closest(".actor-item").dataset.itemId;
+        let itemId = element.closest("[data-item-id]").dataset.itemId;
         return this.actor.deleteOwnedItem(itemId);
     }
 

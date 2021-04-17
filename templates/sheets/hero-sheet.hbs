@@ -73,9 +73,14 @@
 
         <div class="col">
             <section class="heritage">
-                <h1 class="section-header">
-                    {{localize "tinyd6.actor.heritage.header"}}
+                <h1 class="section-header" data-item-id="{{heritage._id}}">
+                    {{localize config.heritageHeaderPath}}
                     <span class="heritage-value">{{heritage.name}}</span>
+                    {{#if heritage}}
+                        <small>
+                            <a class="item-control item-delete ml-2" title="{{localize "tinyd6.actor.actions.deleteHeritage"}}"><i class="fas fa-times"></i></a>
+                        </small>
+                    {{/if}}
                 </h1>
                 <div class="heritage-trait">
                     {{heritage.data.trait}}
@@ -86,22 +91,24 @@
                 <h1 class="section-header">{{localize "tinyd6.actor.xp.header"}}</h1>
                 <div class="stat-values d-flex">
                     <label class="mr-2">{{localize "tinyd6.actor.xp.total"}}</label>
-                    <input name="data.xp.max" type="text" value="{{data.xp.max}}" placeholder="{{localize "tinyd6.actor.health.current"}}" dType="Number"/>
+                    <input name="data.xp.max" type="text" value="{{data.xp.max}}" placeholder="{{localize "tinyd6.actor.xp.total"}}" dType="Number"/>
                     <span class="mx-3">/</span>
                     <label class="mr-2">{{localize "tinyd6.actor.xp.spent"}}</label>
-                    <input name="data.xp.spent" type="text" value="{{data.xp.spent}}" placeholder="{{localize "tinyd6.actor.health.max"}}" dType="Number"/>
+                    <input name="data.xp.spent" type="text" value="{{data.xp.spent}}" placeholder="{{localize "tinyd6.actor.xp.spent"}}" dType="Number"/>
                     <span class="mx-3">/</span>
                     <label class="mr-2">{{localize "tinyd6.actor.xp.remaining"}}</label>
-                    <input name="data.xp.remaining" type="text" value="{{data.xp.remaining}}" placeholder="{{localize "tinyd6.actor.health.max"}}" dType="Number"/>
+                    <span style="min-width:10%">
+                        {{data.xp.remaining}}
+                    </span>
                 </div>
             </section>
 
             <section class="health">
-                <h1 class="section-header">{{localize "tinyd6.actor.health.header"}}</h1>
+                <h1 class="section-header">{{localize "tinyd6.actor.wounds.header"}}</h1>
                 <div class="stat-values d-flex">
-                    <input name="data.health.value" type="text" value="{{data.health.value}}" placeholder="{{localize "tinyd6.actor.health.current"}}" dType="Number"/>
+                    <input name="data.wounds.value" type="text" value="{{data.wounds.value}}" placeholder="{{localize "tinyd6.actor.wounds.current"}}" dType="Number"/>
                     <span class="mx-3">/</span>
-                    <input name="data.health.max" type="text" value="{{data.health.max}}" placeholder="{{localize "tinyd6.actor.health.max"}}" dType="Number"/>
+                    <input name="data.wounds.max" type="text" value="{{data.wounds.max}}" placeholder="{{localize "tinyd6.actor.wounds.max"}}" dType="Number"/>
                 </div>
             </section>
 
@@ -163,12 +170,16 @@
                         <h3 class="weapon-name">{{weapon.name}}</h3>
                         <div class="d-flex justify-content-center">
                             <label class="light">
-                                <input type="checkbox" disabled{{#if (eq weapon.data.group "light")}} checked{{/if}}/>
+                                <input type="checkbox" disabled{{#if (eq weapon.data.damageType "light")}} checked{{/if}}/>
                                 {{localize "tinyd6.weapon.lightShort"}}
                             </label>
                             <label class="heavy">
-                                <input type="checkbox" disabled{{#if (eq weapon.data.group "heavy")}} checked{{/if}}/>
+                                <input type="checkbox" disabled{{#if (eq weapon.data.damageType "heavy")}} checked{{/if}}/>
                                 {{localize "tinyd6.weapon.heavyShort"}}
+                            </label>
+                            <label class="ranged">
+                                <input type="checkbox" disabled{{#if (eq weapon.data.group "melee")}} checked{{/if}}/>
+                                {{localize "tinyd6.weapon.meleeShort"}}
                             </label>
                             <label class="ranged">
                                 <input type="checkbox" disabled{{#if (eq weapon.data.group "ranged")}} checked{{/if}}/>
