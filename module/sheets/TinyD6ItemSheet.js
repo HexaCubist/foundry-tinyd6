@@ -1,6 +1,5 @@
 export default class TinyD6ItemSheet extends ItemSheet {
     get template() {
-        console.log(this.entity);
         return `systems/tinyd6/templates/sheets/${this.entity.data.type}-sheet.hbs`;
     }
 

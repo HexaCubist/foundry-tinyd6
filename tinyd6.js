@@ -5,7 +5,8 @@ import TinyD6NpcSheet from "./module/sheets/TinyD6NpcSheet.js";
 
 async function preloadHandlebarsTemplates() {
     const templatePaths = [
-        "systems/tinyd6/templates/partials/trait-block.hbs"
+        "systems/tinyd6/templates/partials/trait-block.hbs",
+        "systems/tinyd6/templates/partials/roll-bar.hbs"
     ];
 
     return loadTemplates(templatePaths);

@@ -1,3 +1,5 @@
+import * as Dice from "../helpers/dice.js";
+
 export default class TinyD6ActorSheet extends ActorSheet {
     getData() {
         const data = super.getData();
@@ -25,7 +27,9 @@ export default class TinyD6ActorSheet extends ActorSheet {
     _onDieRoll(event)
     {
         event.preventDefault();
-        //TODO: Send die roll to chat
+        const element = event.currentTarget;
+
+        Dice.RollTest({ numberOfDice: element.dataset.diceX, threshold: element.dataset.threshold })
     }
 
     _onItemCreate(event)

@@ -4,6 +4,7 @@
 @import "common/variables";
 @import "common/functions";
 @import "common/mixins";
+@import "fonts";
 
 .tinyd6
 {
@@ -13,3 +14,5 @@
   @import "sheet/npc";
   @import "sheet/hero";
 }
+
+@import "theme/tiny-cthulhu";

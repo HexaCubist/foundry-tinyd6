@@ -1,6 +1,7 @@
 export const tinyd6 = {};
 
-tinyd6.systemLogo = "systems/tinyd6/assets/images/tiny-dungeon-2e-logo.webp";
+tinyd6.systemLogo = "systems/tinyd6/assets/images/tiny-d6-logo.webp";
+tinyd6.theme = "tiny-cthulhu";
 tinyd6.defaultItemImage = "icons/svg/mystery-man.svg";
 
 tinyd6.weaponTypes = {

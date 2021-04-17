@@ -17,14 +17,14 @@ textarea
   resize: none;
 }
 
-h1
+h1,h2,h3,h4,h5,h6
 {
   border-bottom: 0;
 }
 
 .section-header
 {
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   background-color: $h1-background;
   color: $h1-text;
 
@@ -53,7 +53,10 @@ h1
 .health,
 .experience
 {
-  line-height: toRem(26px);
+  & > .stat-values
+  {
+    line-height: toRem(26px);
+  }
 }
 
 .character

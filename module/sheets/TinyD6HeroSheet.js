@@ -4,7 +4,7 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             template: "systems/tinyd6/templates/sheets/hero-sheet.hbs",
-            classes: [ "tinyd6", "sheet", "hero" ]
+            classes: [ "tinyd6", "sheet", "hero", CONFIG.tinyd6.theme ]
         });
     }
 

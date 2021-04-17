@@ -1,5 +1,5 @@
 <form class="actor-sheet {{classes}} m-0" autocomplete="off">
-    {{> "systems/tinyd6/templates/partials/roll-bar"}}
+    {{> "systems/tinyd6/templates/partials/roll-bar.hbs"}}
 
     <div class="row">
         <div class="col">
@@ -84,7 +84,7 @@
 
             <section class="experience">
                 <h1 class="section-header">{{localize "tinyd6.actor.xp.header"}}</h1>
-                <div class="d-flex">
+                <div class="stat-values d-flex">
                     <label class="mr-2">{{localize "tinyd6.actor.xp.total"}}</label>
                     <input name="data.xp.max" type="text" value="{{data.xp.max}}" placeholder="{{localize "tinyd6.actor.health.current"}}" dType="Number"/>
                     <span class="mx-3">/</span>
@@ -98,7 +98,7 @@
 
             <section class="health">
                 <h1 class="section-header">{{localize "tinyd6.actor.health.header"}}</h1>
-                <div class="d-flex">
+                <div class="stat-values d-flex">
                     <input name="data.health.value" type="text" value="{{data.health.value}}" placeholder="{{localize "tinyd6.actor.health.current"}}" dType="Number"/>
                     <span class="mx-3">/</span>
                     <input name="data.health.max" type="text" value="{{data.health.max}}" placeholder="{{localize "tinyd6.actor.health.max"}}" dType="Number"/>
@@ -145,7 +145,7 @@
                                     <a class="item-show d-inline-block h-100">{{name}}</a>
                                 </h4>
                                 <a class="item-control item-equip ml-2 {{#if gearItem.data.equipped}}equipped{{/if}}" data-field="data.equipped" title="{{localize "tinyd6.actor.actions.equipTrait"}}">
-                                    <i class="fas fa-tshirt"></i>
+                                    <span class="fas fa-tshirt"></span>
                                 </a>
                                 <a class="item-control item-delete ml-2" title="{{localize "tinyd6.actor.actions.deleteTrait"}}"><i class="fas fa-times"></i></a>
                             </div>
@@ -163,15 +163,15 @@
                         <h3 class="weapon-name">{{weapon.name}}</h3>
                         <div class="d-flex justify-content-center">
                             <label class="light">
-                                <input type="checkbox" readonly{{#if (eq weapon.data.group "light")}} checked{{/if}}/>
+                                <input type="checkbox" disabled{{#if (eq weapon.data.group "light")}} checked{{/if}}/>
                                 {{localize "tinyd6.weapon.lightShort"}}
                             </label>
                             <label class="heavy">
-                                <input type="checkbox" readonly{{#if (eq weapon.data.group "heavy")}} checked{{/if}}/>
+                                <input type="checkbox" disabled{{#if (eq weapon.data.group "heavy")}} checked{{/if}}/>
                                 {{localize "tinyd6.weapon.heavyShort"}}
                             </label>
                             <label class="ranged">
-                                <input type="checkbox" readonly{{#if (eq weapon.data.group "ranged")}} checked{{/if}}/>
+                                <input type="checkbox" disabled{{#if (eq weapon.data.group "ranged")}} checked{{/if}}/>
                                 {{localize "tinyd6.weapon.rangedShort"}}
                             </label>
                         </div>
