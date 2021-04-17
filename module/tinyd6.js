@@ -33,6 +33,7 @@ Hooks.once("init", () => {
     console.log("tinyd6 | Initializing Tiny D6 system");
 
     CONFIG.tinyd6 = tinyd6;
+    CONFIG.debug.hooks = true;
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("tinyd6", TinyD6HeroSheet, { makeDefault: true });
@@ -42,10 +43,8 @@ Hooks.once("init", () => {
     Items.registerSheet("tinyd6", TinyD6ItemSheet, { makeDefault: true });
 
     registerGameSettings();
-
     preloadHandlebarsTemplates();
-    //displayFloatingDieRollApplication();
-    
+
     Handlebars.registerHelper("times", function(n, content)
     {
         let result = "";
@@ -56,6 +55,10 @@ Hooks.once("init", () => {
 
         return result;
     });
+});
+
+Hooks.once("setup", event => {
+    displayFloatingDieRollApplication();
 });
 
 Hooks.on("createOwnedItem", (actor, item) => {

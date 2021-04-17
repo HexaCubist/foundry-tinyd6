@@ -2,12 +2,21 @@ import * as Dice from "../helpers/dice.js";
 
 export default class DieRoll extends FormApplication {
     static get defaultOptions() {
-        console.log("TEST");
         return mergeObject(super.defaultOptions, {
             title: game.i18n.localize("tinyd6.system.dieRoller"),
             template: "systems/tinyd6/templates/applications/die-roll.hbs",
             classes: [ "tinyd6", "die-roller", game.settings.get("tinyd6", "theme") ]
         });
+    }
+
+    getData()
+    {
+        const data = super.getData();
+console.log(data);
+        data.config = CONFIG.tinyd6;
+        data.config.heritageHeaderPath = `tinyd6.actor.${data.config.theme}.heritage.header`;
+
+        return data;
     }
 
     activateListeners(html)
