@@ -1,7 +1,14 @@
 {
   "tinyd6": {
     "system": {
-      "name": "Tiny D6 2e"
+      "name": "Tiny D6 2e",
+      "dieRoller": "Tests"
+    },
+    "settings": {
+      "theme": {
+        "name": "Theme",
+        "hint": "Set this to theme your world for a specific Tiny D6 game"
+      }
     },
     "dice": {
       "roll": {

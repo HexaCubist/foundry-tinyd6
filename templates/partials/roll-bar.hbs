@@ -1,9 +1,10 @@
-<div class="d-flex justify-content-center mb-3">
+<div class="d-flex {{flexClass}} justify-content-center {{#if (eq flexClass "")}}mb-3{{/if}}">
+
     <button class="roll-dice" data-dice-x="1">
         <span class="fas fa-fw fa-dice-d6"></span>
         {{localize "tinyd6.dice.roll.disadvantage"}}
     </button>
-    <button class="roll-dice mx-3" data-dice-x="2">
+    <button class="roll-dice {{#if (eq flexClass "")}}mx-3{{/if}}" data-dice-x="2">
         <span class="fas fa-fw fa-dice"></span>
         {{localize "tinyd6.dice.roll.standard"}}
     </button>
