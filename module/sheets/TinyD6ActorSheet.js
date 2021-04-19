@@ -6,6 +6,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
 
         data.config = CONFIG.tinyd6;
         data.config.heritageHeaderPath = `tinyd6.actor.${data.config.theme}.heritage.header`;
+        data.owner = this.actor.owner;
         data.traits = data.items.filter(item => { return item.type === "trait" });
         data.weapons = data.items.filter(item => { return item.type === "weapon" && item.data.equipped });
         data.armor = data.items.filter(item => { return item.type === "armor" && item.data.equipped });

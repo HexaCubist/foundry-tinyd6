@@ -1,7 +1,9 @@
 <form class="actor-sheet {{classes}} m-0" autocomplete="off">
+    {{#if owner}}
         <div class="mb-3">
             {{> "systems/tinyd6/templates/partials/roll-bar.hbs" flexClass=""}}
         </div>
+    {{/if}}
 
     <div class="row">
         <div class="col">
