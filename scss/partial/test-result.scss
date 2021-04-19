@@ -1,0 +1,24 @@
+&.dice-breakdown
+{
+  background-color: $dice-breakdown-background;
+  color: $dice-breakdown-color;
+  padding: toRem(8px) toRem(16px);
+}
+
+&.roll-result
+{
+  text-transform: uppercase;
+  text-align: center;
+
+  &.bg-success
+  {
+    background-color: $success;
+    color: $white;
+  }
+
+  &.bg-danger
+  {
+    background-color: $warning;
+    color: $white;
+  }
+}

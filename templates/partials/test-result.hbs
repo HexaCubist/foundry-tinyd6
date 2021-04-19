@@ -1,0 +1,16 @@
+<div class="tinyd6 roll roll-result {{#if (gt rollResult.total 0)}}bg-success{{^}}bg-danger{{/if}}">
+    <h3>{{#if (gt rollResult.total 0)  }}
+        Success!
+    {{^}}
+        Failed.
+    {{/if}}</h3>
+</div>
+<div class="tinyd6 dice-breakdown d-flex justify-content-center">
+    {{#each rollResult.terms as |piece|}}
+        {{#each piece.results as |die|}}
+            <span class="mx-3">
+                <span class="fas fa-2x {{face die.result }}"></span>
+            </span>
+        {{/each}}
+    {{/each}}
+</div>

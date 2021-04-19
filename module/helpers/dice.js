@@ -1,4 +1,4 @@
-export function RollTest({
+export async function RollTest({
     numberOfDice = 2,
     numberOfSides = 6,
     defaultThreshold = 5,
@@ -17,15 +17,18 @@ export function RollTest({
     }
     
     const rollForumla = `${numberOfDice}d${numberOfSides}cs>=${threshold}`;
-    const rollData = {
-        actionValue: "Test"
+
+    // Execute the roll
+    let result = new Roll(rollForumla, {}).roll()
+    let renderedRoll = await renderTemplate("systems/tinyd6/templates/partials/test-result.hbs", { rollResult: result });
+    // let renderedRoll = await result.render({ result: result, template: "systems/tinyd6/templates/partials/test-result.hbs" });
+
+    const chatData = {
+        speaker: ChatMessage.getSpeaker(),
+        content: renderedRoll
     };
 
-    const messageData = {
-        speaker: ChatMessage.getSpeaker()
-    };
-
-    new Roll(rollForumla, rollData).roll().toMessage(messageData);
+    result.toMessage(chatData);
 }
 
 export function setFocusOption(form, element) {

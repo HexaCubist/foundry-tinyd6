@@ -7,7 +7,6 @@ export default class TinyD6ItemSheet extends ItemSheet {
         const data = super.getData();
         data.traits = {};
 
-        console.log(data);
         data.config = CONFIG.tinyd6;
 
         return data;

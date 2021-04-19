@@ -25,7 +25,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
         super.activateListeners(html);
     }
 
-    _onDieRoll(event)
+    async _onDieRoll(event)
     {
         event.preventDefault();
         const element = event.currentTarget;
