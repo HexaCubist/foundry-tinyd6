@@ -12,7 +12,6 @@ export default class DieRoll extends FormApplication {
     getData()
     {
         const data = super.getData();
-console.log(data);
         data.config = CONFIG.tinyd6;
         data.config.heritageHeaderPath = `tinyd6.actor.${data.config.theme}.heritage.header`;
 
@@ -22,6 +21,8 @@ console.log(data);
     activateListeners(html)
     {
         html.find(".roll-dice").click(this._onDieRoll.bind(this));
+        html.find(".toggle-focus").click(this._setFocusAction.bind(this));
+        html.find(".toggle-marksman").on('click change', this._setMarksmanTrait.bind(this));
 
         super.activateListeners(html);
     }
@@ -31,6 +32,29 @@ console.log(data);
         event.preventDefault();
         const element = event.currentTarget;
 
-        Dice.RollTest({ numberOfDice: element.dataset.diceX, threshold: element.dataset.threshold })
+        const rollData = {
+            numberOfDice: element.dataset.diceX,
+            defaultThreshold: element.dataset.threshold,
+            focusAction: element.dataset.enableFocus,
+            marksmanTrait: element.dataset.enableMarksman
+        };
+
+        Dice.RollTest(rollData);
+    }
+
+    _setFocusAction(event)
+    {
+        const element = event.currentTarget;
+
+        const form = $(element.closest("form"));
+        Dice.setFocusOption(form, element);
+    }
+
+    _setMarksmanTrait(event)
+    {
+        const element = event.currentTarget;
+
+        const form = $(element.closest("form"));
+        Dice.setMarksmanOption(form, element);
     }
 }

@@ -30,7 +30,14 @@ export default class TinyD6ActorSheet extends ActorSheet {
         event.preventDefault();
         const element = event.currentTarget;
 
-        Dice.RollTest({ numberOfDice: element.dataset.diceX, threshold: element.dataset.threshold })
+        const rollData = {
+            numberOfDice: element.dataset.diceX,
+            defaultThreshold: element.dataset.threshold,
+            focusAction: element.dataset.enableFocus,
+            marksmanTrait: element.dataset.enableMarksman
+        };
+
+        Dice.RollTest(rollData);
     }
 
     _onItemCreate(event)

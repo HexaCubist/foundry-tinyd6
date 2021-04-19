@@ -11,6 +11,10 @@
       }
     },
     "dice": {
+      "modifier": {
+        "focus": "Focus",
+        "marksman": "Marksman"
+      },
       "roll": {
         "disadvantage": "Disadvantage",
         "standard": "Standard Test",

@@ -14,7 +14,7 @@ async function preloadHandlebarsTemplates() {
 };
 
 async function displayFloatingDieRollApplication() {
-    new DieRoll(DieRoll.defaultOptions, {}).render(true);
+    new DieRoll(DieRoll.defaultOptions, { excludeTextLabels: true }).render(true);
 }
 
 function registerGameSettings()
@@ -33,7 +33,7 @@ Hooks.once("init", () => {
     console.log("tinyd6 | Initializing Tiny D6 system");
 
     CONFIG.tinyd6 = tinyd6;
-    CONFIG.debug.hooks = true;
+    // CONFIG.debug.hooks = true;
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("tinyd6", TinyD6HeroSheet, { makeDefault: true });
