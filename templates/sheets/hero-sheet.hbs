@@ -5,143 +5,139 @@
         </div>
     {{/if}}
 
-    <div class="row">
-        <div class="col">
-            <header class="sheet-header mb-3">
-                <div class="d-flex">
-                    <div class="mr-2">
-                        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" class="character-art" height="64" width="64"/>
-                    </div>
-                    <div class="ml-auto">
-                        <img src="{{config.systemLogo}}" class="logo" title="{{localize "tinyd6.system.name"}}"/>
-                    </div>
+    <header class="sheet-header mb-3">
+        <div class="d-flex">
+            <div class="mr-2">
+                <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" class="character-art" height="64" width="64"/>
+            </div>
+            <div class="ml-auto">
+                <img src="{{config.systemLogo}}" class="logo" title="{{localize "tinyd6.system.name"}}"/>
+            </div>
 
-                </div>
-            </header>
-            <section class="character">
-                <h1 class="section-header">{{localize "tinyd6.actor.character"}}</h1>
-                <div class="name property d-flex justify-content-start">
-                    <label class="mr-2">{{localize "tinyd6.actor.name"}}</label>
-                    <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "tinyd6.actor.name"}}"/>
-                </div>
-                <div class="people property d-flex justify-content-start">
-                    <label class="mr-2">{{localize "tinyd6.actor.people"}}</label>
-                    <input name="data.people" type="text" value="{{data.people}}" placeholder="{{localize "tinyd6.actor.people"}}"/>
-                </div>
-                <div class="homeland property d-flex justify-content-start">
-                    <label class="mr-2">{{localize "tinyd6.actor.homeland"}}</label>
-                    <input name="data.homeland" type="text" value="{{data.homeland}}" placeholder="{{localize "tinyd6.actor.homeland"}}"/>
-                </div>
-                <div class="d-flex">
-                    <div class="age property d-flex justify-content-start">
-                        <label class="mr-2">{{localize "tinyd6.actor.age"}}</label>
-                        <input name="data.age" type="text" value="{{data.age}}" placeholder="{{localize "tinyd6.actor.age"}}" dType="Number"/>
-                    </div>
-                    <div class="eyes property d-flex justify-content-start">
-                        <label class="mr-2">{{localize "tinyd6.actor.eyes"}}</label>
-                        <input name="data.eyes" type="text" value="{{data.eyes}}" placeholder="{{localize "tinyd6.actor.eyes"}}"/>
-                    </div>
-                    <div class="hair property d-flex justify-content-start">
-                        <label class="mr-2">{{localize "tinyd6.actor.hair"}}</label>
-                        <input name="data.hair" type="text" value="{{data.hair}}" placeholder="{{localize "tinyd6.actor.hair"}}"/>
-                    </div>
-                </div>
-                <div class="family-trade property d-flex justify-content-start">
-                    <label class="d-inline-block mr-2">{{localize "tinyd6.actor.familyTrade"}}</label>
-                    <div data-editable=true data-name="data.familyTrade">
-                        {{data.familyTrade}}
-                    </div>
-                </div>
-                <div class="belief property d-flex justify-content-start">
-                    <label class="d-inline-block mr-2">{{localize "tinyd6.actor.belief"}}</label>
-                    <div data-edit=true data-name="data.belief">
-                        {{data.belief}}
-                    </div>
-                </div>
-            </section>
-
-            <section class="traits">
-                <div class="section-header d-flex justify-content-between">
-                    <h1 class="my-0">{{localize "tinyd6.actor.traits"}}</h1>
-                    <a class="item-add" data-type="trait">
-                        <span class="fas fa-plus"></span>
-                    </a>
-                </div>
-                <ul class="actor-items px-0">
-                    {{#each traits as |trait id|}}
-                        {{> "systems/tinyd6/templates/partials/trait-block.hbs" trait}}
-                    {{/each}}
-                </ul>
-            </section>
         </div>
-
-        <div class="col">
-            <section class="heritage">
-                <h1 class="section-header" data-item-id="{{heritage._id}}">
-                    {{localize config.heritageHeaderPath}}
-                    <span class="heritage-value">{{heritage.name}}</span>
-                    {{#if heritage}}
-                        <small>
-                            <a class="item-control item-delete ml-2" title="{{localize "tinyd6.actor.actions.deleteHeritage"}}"><i class="fas fa-times"></i></a>
-                        </small>
-                    {{/if}}
-                </h1>
-                <div class="heritage-trait">
-                    {{heritage.data.trait}}
+    </header>
+    <section class="character">
+        <h1 class="section-header">{{localize "tinyd6.actor.character"}}</h1>
+        <div class="stat-values">
+            <div class="name property d-flex justify-content-start">
+                <label class="mr-2">{{localize "tinyd6.actor.name"}}</label>
+                <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "tinyd6.actor.name"}}"/>
+            </div>
+            <div class="people property d-flex justify-content-start">
+                <label class="mr-2">{{localize "tinyd6.actor.people"}}</label>
+                <input name="data.people" type="text" value="{{data.people}}" placeholder="{{localize "tinyd6.actor.people"}}"/>
+            </div>
+            <div class="homeland property d-flex justify-content-start">
+                <label class="mr-2">{{localize "tinyd6.actor.homeland"}}</label>
+                <input name="data.homeland" type="text" value="{{data.homeland}}" placeholder="{{localize "tinyd6.actor.homeland"}}"/>
+            </div>
+            <div class="d-flex">
+                <div class="age property d-flex justify-content-start">
+                    <label class="mr-2">{{localize "tinyd6.actor.age"}}</label>
+                    <input name="data.age" type="text" value="{{data.age}}" placeholder="{{localize "tinyd6.actor.age"}}" dType="Number"/>
                 </div>
-            </section>
-
-            <section class="experience">
-                <h1 class="section-header">{{localize "tinyd6.actor.xp.header"}}</h1>
-                <div class="stat-values d-flex">
-                    <label class="mr-2">{{localize "tinyd6.actor.xp.total"}}</label>
-                    <input name="data.xp.max" type="text" value="{{data.xp.max}}" placeholder="{{localize "tinyd6.actor.xp.total"}}" dType="Number"/>
-                    <span class="mx-3">/</span>
-                    <label class="mr-2">{{localize "tinyd6.actor.xp.spent"}}</label>
-                    <input name="data.xp.spent" type="text" value="{{data.xp.spent}}" placeholder="{{localize "tinyd6.actor.xp.spent"}}" dType="Number"/>
-                    <span class="mx-3">/</span>
-                    <label class="mr-2">{{localize "tinyd6.actor.xp.remaining"}}</label>
-                    <span style="min-width:10%">
-                        {{data.xp.remaining}}
-                    </span>
+                <div class="eyes property d-flex justify-content-start">
+                    <label class="mr-2">{{localize "tinyd6.actor.eyes"}}</label>
+                    <input name="data.eyes" type="text" value="{{data.eyes}}" placeholder="{{localize "tinyd6.actor.eyes"}}"/>
                 </div>
-            </section>
-
-            <section class="health">
-                <h1 class="section-header">{{localize "tinyd6.actor.wounds.header"}}</h1>
-                <div class="stat-values d-flex">
-                    <input name="data.wounds.value" type="text" value="{{data.wounds.value}}" placeholder="{{localize "tinyd6.actor.wounds.current"}}" dType="Number"/>
-                    <span class="mx-3">/</span>
-                    <input name="data.wounds.max" type="text" value="{{data.wounds.max}}" placeholder="{{localize "tinyd6.actor.wounds.max"}}" dType="Number"/>
+                <div class="hair property d-flex justify-content-start">
+                    <label class="mr-2">{{localize "tinyd6.actor.hair"}}</label>
+                    <input name="data.hair" type="text" value="{{data.hair}}" placeholder="{{localize "tinyd6.actor.hair"}}"/>
                 </div>
-            </section>
-
-            <section class="proficiencies">
-                <h1 class="section-header">{{localize "tinyd6.actor.proficiencies.header"}}</h1>
-                <div class="d-flex justify-content-between">
-                    <div class="light">
-                        <label>
-                            <input type="checkbox" name="data.proficiencies.light" {{checked data.proficiencies.light}}/>
-                            {{localize "tinyd6.weapon.light"}}
-                        </label>
-                    </div>
-                    <div class="heavy">
-                        <label>
-                            <input type="checkbox" name="data.proficiencies.heavy" {{checked data.proficiencies.heavy}}/>
-                            {{localize "tinyd6.weapon.heavy"}}
-                        </label>
-                    </div>
-                    <div class="ranged">
-                        <label>
-                            <input type="checkbox" name="data.proficiencies.ranged" {{checked data.proficiencies.ranged}}/>
-                            {{localize "tinyd6.weapon.ranged"}}
-                        </label>
-                    </div>
+            </div>
+            <div class="family-trade property d-flex justify-content-start">
+                <label class="d-inline-block mr-2">{{localize "tinyd6.actor.familyTrade"}}</label>
+                <div data-editable=true data-name="data.familyTrade">
+                    {{data.familyTrade}}
                 </div>
-                <textarea name="data.proficiencies.masteredWeapons" placeholder="{{localize "tinyd6.actor.proficiencies.mastered"}}">{{data.proficiencies.masteredWeapons}}</textarea>
-            </section>
+            </div>
+            <div class="belief property d-flex justify-content-start">
+                <label class="d-inline-block mr-2">{{localize "tinyd6.actor.belief"}}</label>
+                <div data-edit=true data-name="data.belief">
+                    {{data.belief}}
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section class="traits">
+        <div class="section-header d-flex justify-content-between">
+            <h1 class="my-0">{{localize "tinyd6.actor.traits"}}</h1>
+            <a class="item-add" data-type="trait">
+                <span class="fas fa-plus"></span>
+            </a>
+        </div>
+        <ul class="actor-items px-0">
+            {{#each traits as |trait id|}}
+                {{> "systems/tinyd6/templates/partials/trait-block.hbs" trait}}
+            {{/each}}
+        </ul>
+    </section>
+
+    <section class="heritage">
+        <h1 class="section-header" data-item-id="{{heritage._id}}">
+            {{localize config.heritageHeaderPath}}
+            <span class="heritage-value">{{heritage.name}}</span>
+            {{#if heritage}}
+                <small>
+                    <a class="item-control item-delete ml-2" title="{{localize "tinyd6.actor.actions.deleteHeritage"}}"><i class="fas fa-times"></i></a>
+                </small>
+            {{/if}}
+        </h1>
+        <div class="heritage-trait">
+            {{heritage.data.trait}}
+        </div>
+    </section>
+
+    <section class="experience">
+        <h1 class="section-header">{{localize "tinyd6.actor.xp.header"}}</h1>
+        <div class="stat-values d-flex">
+            <label class="mr-2">{{localize "tinyd6.actor.xp.total"}}</label>
+            <input name="data.xp.max" type="text" value="{{data.xp.max}}" placeholder="{{localize "tinyd6.actor.xp.total"}}" dType="Number"/>
+            <span class="mx-3">/</span>
+            <label class="mr-2">{{localize "tinyd6.actor.xp.spent"}}</label>
+            <input name="data.xp.spent" type="text" value="{{data.xp.spent}}" placeholder="{{localize "tinyd6.actor.xp.spent"}}" dType="Number"/>
+            <span class="mx-3">/</span>
+            <label class="mr-2">{{localize "tinyd6.actor.xp.remaining"}}</label>
+            <span style="min-width:10%">
+                {{data.xp.remaining}}
+            </span>
+        </div>
+    </section>
+
+    <section class="health">
+        <h1 class="section-header">{{localize "tinyd6.actor.wounds.header"}}</h1>
+        <div class="stat-values d-flex">
+            <input name="data.wounds.value" type="text" value="{{data.wounds.value}}" placeholder="{{localize "tinyd6.actor.wounds.current"}}" dType="Number"/>
+            <span class="mx-3">/</span>
+            <input name="data.wounds.max" type="text" value="{{data.wounds.max}}" placeholder="{{localize "tinyd6.actor.wounds.max"}}" dType="Number"/>
+        </div>
+    </section>
+
+    <section class="proficiencies">
+        <h1 class="section-header">{{localize "tinyd6.actor.proficiencies.header"}}</h1>
+        <div class="d-flex justify-content-between">
+            <div class="light">
+                <label>
+                    <input type="checkbox" name="data.proficiencies.light" {{checked data.proficiencies.light}}/>
+                    {{localize "tinyd6.weapon.light"}}
+                </label>
+            </div>
+            <div class="heavy">
+                <label>
+                    <input type="checkbox" name="data.proficiencies.heavy" {{checked data.proficiencies.heavy}}/>
+                    {{localize "tinyd6.weapon.heavy"}}
+                </label>
+            </div>
+            <div class="ranged">
+                <label>
+                    <input type="checkbox" name="data.proficiencies.ranged" {{checked data.proficiencies.ranged}}/>
+                    {{localize "tinyd6.weapon.ranged"}}
+                </label>
+            </div>
+        </div>
+        <textarea name="data.proficiencies.masteredWeapons" placeholder="{{localize "tinyd6.actor.proficiencies.mastered"}}">{{data.proficiencies.masteredWeapons}}</textarea>
+    </section>
 
     <div id="inventory" class="row">
         <div class="col">
