@@ -28,15 +28,19 @@
           "spent": 0
         },
         "proficiencies": {
-          "light": false,
-          "heavy": false,
-          "ranged": false,
+          "lightMelee": false,
+          "heavyMelee": false,
+          "lightRanged": false,
+          "heavyRanged": false,
           "masteredWeapons": ""
         },
         "gear": {}
       },
       "hero": {
-        "corruptionThreshold": 6
+        "corruptionThreshold": {
+          "value": 0,
+          "max": 6
+        }
       }
     },
     "hero": {

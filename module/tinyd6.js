@@ -33,7 +33,7 @@ Hooks.once("init", () => {
     console.log("tinyd6 | Initializing Tiny D6 system");
 
     CONFIG.tinyd6 = tinyd6;
-    // CONFIG.debug.hooks = true;
+    CONFIG.debug.hooks = true;
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("tinyd6", TinyD6HeroSheet, { makeDefault: true });
@@ -93,7 +93,9 @@ Hooks.on("createOwnedItem", (actor, item) => {
                 wounds: {
                     max: item.data.startingHealth
                 },
-                corruptionThreshold: item.data.corruptionThreshold
+                corruptionThreshold: {
+                    max: item.data.corruptionThreshold
+                }
             }
         });
     }

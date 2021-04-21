@@ -12,6 +12,14 @@
   }
 }
 
+&.sheet
+{
+  .border-bottom
+  {
+    border-bottom: 1px solid $gray-900 !important;
+  }
+}
+
 .health
 {
   

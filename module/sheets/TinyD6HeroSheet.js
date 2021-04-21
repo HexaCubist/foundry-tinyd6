@@ -27,9 +27,39 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
     {
         html.find(".toggle-focus").click(this._setFocusAction.bind(this));
         html.find(".toggle-marksman").on('click change', this._setMarksmanTrait.bind(this));
+        html.find(".health-box").on('click change', this._setCurrentDamage.bind(this));
+        html.find(".increase-max-health").click(this._incrementMaxHealth.bind(this));
 
         super.activateListeners(html);
     }
+
+    _incrementMaxHealth(event)
+    {
+        const currentMaxHealth = parseInt(this.actor.data.data.wounds.max);
+        if (event.altKey)
+        {
+            this.actor.update({
+                _id: this.actor._id,
+                data: {
+                    wounds: {
+                        max: (currentMaxHealth - 1)
+                    }
+                }
+            });
+        }
+        else
+        {
+            this.actor.update({
+                _id: this.actor._id,
+                data: {
+                    wounds: {
+                        max: (currentMaxHealth + 1)
+                    }
+                }
+            });
+        }
+    }
+
     _setFocusAction(event)
     {
         const element = event.currentTarget;
@@ -44,5 +74,35 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
 
         const form = $(element.closest("form"));
         Dice.setMarksmanOption(form, element);
+    }
+
+    _setCurrentDamage(event)
+    {
+        event.preventDefault();
+        
+        const element = event.currentTarget;
+        const currentDamage = parseInt(this.actor.data.data.wounds.value);
+        if (element.checked)
+        {
+            this.actor.update({
+                _id: this.actor._id,
+                data: {
+                    wounds: {
+                        value: (currentDamage + 1)
+                    }
+                }
+            });
+        }
+        else if (currentDamage > 0)
+        {
+            this.actor.update({
+                _id: this.actor._id,
+                data: {
+                    wounds: {
+                        value: (currentDamage - 1)
+                    }
+                }
+            });
+        }
     }
 }

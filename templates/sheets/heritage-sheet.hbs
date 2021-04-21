@@ -10,8 +10,8 @@
         <input name="data.corruptionThreshold" type="text" value="{{data.corruptionThreshold}}" placeholder="{{localize "tinyd6.heritage.corruptionThreshold"}}" dType="Number"/>
     </div>
     <h2 class="section-header">{{localize "tinyd6.sheet.description"}}</h2>
-    <textarea name="data.description">{{data.description}}</textarea>
+    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
 
     <h2 class="section-header">{{localize "tinyd6.heritage.trait"}}</h2>
-    <textarea name="data.trait">{{data.trait}}</textarea>
+    {{editor content=data.trait target="data.trait" button=true owner=owner editable=editable}}
 </form>

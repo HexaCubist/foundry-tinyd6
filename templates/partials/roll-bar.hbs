@@ -1,19 +1,19 @@
 <div class="d-flex die-roller {{flexClass}} justify-content-center">
 
     <button class="roll-dice" data-dice-x="1" title="{{localize "tinyd6.dice.roll.disadvantage"}}">
-        <span class="fas fa-fw fa-dice-d6"></span>
+        <span class="fas fa-fw{{#if excludeTextLabels}} fa-2x{{/if}} fa-dice-d6"></span>
         {{#unless excludeTextLabels}}
             {{localize "tinyd6.dice.roll.disadvantage"}}
         {{/unless}}
     </button>
     <button class="roll-dice {{#if (eq flexClass "")}}mx-3{{/if}}" data-dice-x="2" title="{{localize "tinyd6.dice.roll.standard"}}">
-        <span class="fas fa-fw fa-dice"></span>
+        <span class="fas fa-fw{{#if excludeTextLabels}} fa-2x{{/if}} fa-dice"></span>
         {{#unless excludeTextLabels}}
             {{localize "tinyd6.dice.roll.standard"}}
         {{/unless}}
     </button>
     <button class="roll-dice" data-dice-x="3" title="{{localize "tinyd6.dice.roll.advantage"}}">
-        <span class="fas fa-fw fa-cubes"></span>
+        <span class="fas fa-fw{{#if excludeTextLabels}} fa-2x{{/if}} fa-cubes"></span>
         {{#unless excludeTextLabels}}
             {{localize "tinyd6.dice.roll.advantage"}}
         {{/unless}}

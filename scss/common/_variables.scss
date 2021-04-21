@@ -1,5 +1,5 @@
-$h1-background: rgba(36, 32, 33, 0.69);
-$h1-text: #fff;
+$h1-background: transparent;
+$h1-text: $gray-900;
 
 $input-focus-background: #fff;
 $input-focus-border: #7a7971;
@@ -9,4 +9,4 @@ $item-equipped-color: $primary;
 $dice-breakdown-background: $white;
 $dice-breakdown-color: $danger;
 
-$notchSize: toRem(20px);
+$notchSize: toRem(12px);

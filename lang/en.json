@@ -23,23 +23,27 @@
     },
     "sheet": {
       "newItem": "New Item",
-      "description": "Description"
+      "description": "Description",
+      "none": "None"
     },
     "actor": {
       "character": "Character",
       "name": "Name",
       "people": "People",
       "traits": "Traits",
+      "description": "Description",
       "tiny-cthulhu": {
         "heritage": {
           "header": "Archetype",
-          "traits": "Archetype Trait"
+          "traits": "Archetype Trait",
+          "delete": "Remove Archetype"
         }
       },
       "tiny-dungeon": {
         "heritage": {
           "header": "Heritage",
-          "traits": "Heritage Trait"
+          "traits": "Heritage Trait",
+          "delete": "Remove Heritage"
         }
       },
       "homeland": "Homeland",
@@ -57,11 +61,20 @@
       "wounds": {
         "header": "Health",
         "current": "Current",
-        "max": "Total"
+        "max": "Max:",
+        "increaseMax": "Increment Max HP",
+        "help": "Check a box when you suffer damage. Uncheck when healed."
+      },
+      "corruption": {
+        "header": "Corruption",
+        "current": "Current",
+        "max": "Max:",
+        "increaseMax": "Increment Corruption Threshold",
+        "help": "Check a box when you suffer corruption. Uncheck if recovered."
       },
       "proficiencies": {
-        "header": "Weapon Proficiencies",
-        "mastered": "Mastered Weapons"
+        "header": "Proficiency",
+        "mastered": "Mastery"
       },
       "gear": "Inventory",
       "equipped": "Equipped",
@@ -69,8 +82,7 @@
       "wearing": "Wearing",
       "actions": {
         "editTrait": "Edit Trait",
-        "deleteTrait": "Remove Trait",
-        "deleteHeritage": "Remove Heritage"
+        "deleteTrait": "Remove Trait"
       }
     },
     "weaponCategories":
@@ -98,6 +110,10 @@
       "light": "Light",
       "heavy": "Heavy",
       "ranged": "Ranged",
+      "lightMelee": "L. Melee",
+      "heavyMelee": "H. Melee",
+      "lightRanged": "L. Ranged",
+      "heavyRanged": "H. Ranged",
       "lightShort": "L",
       "heavyShort": "H",
       "meleeShort": "M",
