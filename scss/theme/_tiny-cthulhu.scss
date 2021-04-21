@@ -128,6 +128,31 @@
           }
         }
       }
+
+      .equipment
+      {
+        .equipped-weapon
+        {
+          line-height: 4rem;
+        }
+        
+        .total-armor
+        {
+          display: inline-block;
+          text-align: center;
+          line-height: 4rem;
+          width: 2rem;
+          height: 4rem;
+          margin-right: 1rem;
+
+          font-size: 18pt;
+          font-weight: 600;
+          background-image: url("../assets/icons/armor.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+      }
     }
   }
 

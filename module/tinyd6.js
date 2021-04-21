@@ -7,7 +7,8 @@ import DieRoll from "./applications/DieRoll.js";
 async function preloadHandlebarsTemplates() {
     const templatePaths = [
         "systems/tinyd6/templates/partials/trait-block.hbs",
-        "systems/tinyd6/templates/partials/roll-bar.hbs"
+        "systems/tinyd6/templates/partials/roll-bar.hbs",
+        "systems/tinyd6/templates/partials/inventory-card.hbs"
     ];
 
     return loadTemplates(templatePaths);
@@ -33,7 +34,7 @@ Hooks.once("init", () => {
     console.log("tinyd6 | Initializing Tiny D6 system");
 
     CONFIG.tinyd6 = tinyd6;
-    CONFIG.debug.hooks = true;
+    // CONFIG.debug.hooks = true;
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("tinyd6", TinyD6HeroSheet, { makeDefault: true });

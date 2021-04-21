@@ -1,5 +1,7 @@
 {
   "tinyd6": {
+    "TinyD6HeroSheet": "Hero",
+    "TinyD6NpcSheet": "NPC",
     "system": {
       "name": "Tiny D6 2e",
       "dieRoller": "Tests"
@@ -125,7 +127,8 @@
       "damageReduction": "DR",
       "slots": "Item Slots",
       "depletion": "Depletion",
-      "description": "Description"
+      "description": "Description",
+      "none": "No Armor"
     },
     "gear": {
       "name": "Name",

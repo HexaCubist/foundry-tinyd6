@@ -80,7 +80,7 @@
                 </div>
                 <div class="health-meter">
                     {{#times data.corruptionThreshold.max}}
-                        <input type="checkbox" value="1" class="health-box d-inline-block" {{#if (lt . ../data.corruptionThreshold.value)}}checked{{/if}} />
+                        <input type="checkbox" value="1" class="corruption-box d-inline-block" {{#if (lt . ../data.corruptionThreshold.value)}}checked{{/if}} />
                     {{/times}}
                 </div>
                 {{#if owner}}
@@ -165,36 +165,14 @@
 
     <section class="inventory">
         <h2 class="floating-header">{{localize "tinyd6.actor.gear"}}</h2>
-        <div class="row">
-            <div class="col">
-                <section class="owned-items">
-                    <ul class="actor-items px-0">
-                        {{#each gear as |gearItem id|}}
-                            <li class="actor-item" data-item-id="{{gearItem._id}}">
-                                <div class="d-flex justify-content-between">
-                                    <img src="{{gearItem.img}}" title="{{gearItem.name}}" width="24" height="24" class="align-middle mr-2"/>
-                                    <h4 class="mr-auto">
-                                        <a class="item-show d-inline-block h-100">{{name}}</a>
-                                    </h4>
-                                    <a class="item-control item-equip ml-2 {{#if gearItem.data.equipped}}equipped{{/if}}" data-field="data.equipped" title="{{localize "tinyd6.actor.actions.equipTrait"}}">
-                                        <span class="fas fa-tshirt"></span>
-                                    </a>
-                                    <a class="item-control item-delete ml-2" title="{{localize "tinyd6.actor.actions.deleteTrait"}}"><i class="fas fa-times"></i></a>
-                                </div>
-                            </li>
-                        {{/each}}
-                    </ul>
-                </section>
-            </div>
-            <div class="col-5">
-                <section class="equipment">
-                    <h1 class="section-header">{{localize "tinyd6.actor.equipped"}}</h1>
-                    <h2>{{localize "tinyd6.actor.weaponry"}}</h2>
+        <section class="equipment">
+            <div class="row">
+                <div class="col">
                     {{#each weapons as |weapon id|}}
                         <div class="equipped-weapon">
-                            <h3 class="weapon-name">{{weapon.name}}</h3>
-                            <div class="d-flex justify-content-center">
-                                <label class="light">
+                            <div class="d-flex">
+                                <h3 class="weapon-name">{{weapon.name}}</h3>
+                                <label class="light ml-auto">
                                     <input type="checkbox" disabled{{#if (eq weapon.data.damageType "light")}} checked{{/if}}/>
                                     {{localize "tinyd6.weapon.lightShort"}}
                                 </label>
@@ -213,16 +191,24 @@
                             </div>
                         </div>
                     {{/each}}
-                    <h2>{{localize "tinyd6.actor.wearing"}}</h2>
-                    <div class="equipped-armor">
-                        <span class="total-armor">{{armorTotal}}</span>
-                        {{#each armor as |armor id|}}
-                            <div>{{armor.name}}</div>
-                        {{/each}}
-                    </div>
-                </section>
+                </div>
+                <div class="col-4 equipped-armor">
+                    <span class="total-armor">{{armorTotal}}</span>
+                    {{#each armor as |armor id|}}
+                        <span>{{armor.name}}</span>
+                    {{/each}}
+                    {{#unless armor}}<span>{{localize "tinyd6.armor.none"}}</span>{{/unless}}
+                </div>
             </div>
-        </div>
+        </section>
+
+        <section class="owned-items">
+            <div class="row">
+                {{#each gear as |gearItem id|}}
+                    {{> "systems/tinyd6/templates/partials/inventory-card.hbs" gearItem=gearItem tagName="div" classes="col-4" }}
+                {{/each}}
+            </div>
+        </section>
     </section>
 </form>
 

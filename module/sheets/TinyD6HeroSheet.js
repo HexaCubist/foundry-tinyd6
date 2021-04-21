@@ -28,36 +28,9 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
         html.find(".toggle-focus").click(this._setFocusAction.bind(this));
         html.find(".toggle-marksman").on('click change', this._setMarksmanTrait.bind(this));
         html.find(".health-box").on('click change', this._setCurrentDamage.bind(this));
-        html.find(".increase-max-health").click(this._incrementMaxHealth.bind(this));
+        html.find(".corruption-box").on('click change', this._setCurrentCorruption.bind(this));
 
         super.activateListeners(html);
-    }
-
-    _incrementMaxHealth(event)
-    {
-        const currentMaxHealth = parseInt(this.actor.data.data.wounds.max);
-        if (event.altKey)
-        {
-            this.actor.update({
-                _id: this.actor._id,
-                data: {
-                    wounds: {
-                        max: (currentMaxHealth - 1)
-                    }
-                }
-            });
-        }
-        else
-        {
-            this.actor.update({
-                _id: this.actor._id,
-                data: {
-                    wounds: {
-                        max: (currentMaxHealth + 1)
-                    }
-                }
-            });
-        }
     }
 
     _setFocusAction(event)
@@ -81,7 +54,7 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
         event.preventDefault();
         
         const element = event.currentTarget;
-        const currentDamage = parseInt(this.actor.data.data.wounds.value);
+        const currentDamage = parseInt(this.actor.data.data.wounds.value ?? 0);
         if (element.checked)
         {
             this.actor.update({
@@ -100,6 +73,37 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
                 data: {
                     wounds: {
                         value: (currentDamage - 1)
+                    }
+                }
+            });
+        }
+    }
+
+    _setCurrentCorruption(event)
+    {
+        event.preventDefault();
+
+        const element = event.currentTarget;
+        const currentCorruption = parseInt(this.actor.data.data.corruptionThreshold.value ?? 0);
+        console.log(currentCorruption);
+        if (element.checked)
+        {
+            this.actor.update({
+                _id: this.actor._id,
+                data: {
+                    corruptionThreshold: {
+                        value: (currentCorruption + 1)
+                    }
+                }
+            });
+        }
+        else if (currentCorruption > 0)
+        {
+            this.actor.update({
+                _id: this.actor._id,
+                data: {
+                    corruptionThreshold: {
+                        value: (currentCorruption - 1)
                     }
                 }
             });
