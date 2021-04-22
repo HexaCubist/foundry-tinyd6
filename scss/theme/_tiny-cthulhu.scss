@@ -16,7 +16,16 @@
       color: $gray-700;
     }
 
-    &.hero
+    &.npc
+    {
+      .character
+      {
+        margin-top: toRem(16px);
+      }
+    }
+
+    &.hero,
+    &.npc
     {
       .character,
       .trauma

@@ -6,6 +6,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
 
         data.config = CONFIG.tinyd6;
         data.config.heritageHeaderPath = `tinyd6.actor.${data.config.theme}.heritage.header`;
+        data.config.characterHeaderPath = `tinyd6.actor.${data.config.theme}.character`;
         data.config.heritageTraitPath = `tinyd6.actor.${data.config.theme}.heritage.traits`;
         data.config.heritageDeleteTooltipPath = `tinyd6.actor.${data.config.theme}.heritage.delete`;
         data.owner = this.actor.owner;

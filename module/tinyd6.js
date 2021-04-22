@@ -94,6 +94,13 @@ function registerGameSettings()
         default: false,
         type: Boolean
     });
+
+    game.settings.register("tinyd6", "threshold", {
+        scope: "world",
+        config: false,
+        default: 5,
+        type: Number
+    });
 }
 
 Hooks.once("init", () => {
@@ -148,6 +155,87 @@ Hooks.once("init", () => {
 Hooks.once("setup", event => {
     displayFloatingDieRollApplication();
 });
+
+/* TODO: Move the floating roll bar logic to this new hotbar element and style it
+ *
+Hooks.once("ready", event => {
+    let basedoc = document.getElementsByClassName("vtt game system-tinyd6");
+
+    let hotbar = document.createElement("DIV");
+    hotbar.className = "dcroll-bar";
+
+    basedoc[0].appendChild(hotbar);
+
+    let backgr = document.createElement("DIV");
+    backgr.className = "dc-input";
+
+    let header = document.createElement("DIV");
+    header.className = "dc-header";
+    header.textContent = "DC";
+
+    let form = document.createElement("FORM");
+    let sInput = document.createElement("INPUT");
+    sInput.className = "dcinput-box";
+    sInput.setAttribute("type", "text");
+    sInput.setAttribute("name", "dc");
+    sInput.setAttribute("value", "");
+
+    let initvalue = 0;
+    if(!hasProperty(tinyd6.threshold, game.data.world.name))
+    {
+        setProperty(tinyd6.threshold, game.data.world.name, 0);
+    }
+
+    sInput.value = game.settings.get("tinyd6", "threshold");
+
+    sInput.addEventListener("keydown", async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if(event.key === "Backspace" || event.key === "Delete"){
+            sInput.value = 0;
+        }
+
+        else if(event.key === "Enter"){
+            //SBOX.diff[game.data.world.name] = sInput.value;
+            await game.settings.set("tinyd6", "threshold", sInput.value);
+        }
+
+        else if(event.key === "-"){
+            //SBOX.diff[game.data.world.name] = sInput.value;
+            sInput.value = "-";
+        }
+
+        else{
+            if(!isNaN(event.key))
+                sInput.value += event.key;
+        }
+
+        if(!isNaN(sInput.value)){
+            sInput.value = parseInt(sInput.value);
+        }
+
+
+    });
+
+    sInput.addEventListener("focusout", async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        //SBOX.diff[game.data.world.name] = sInput.value;
+        await game.settings.set("tinyd6", "threshold", sInput.value);
+
+    });
+
+    form.appendChild(sInput);
+    backgr.appendChild(header);
+
+    backgr.appendChild(form);
+
+    hotbar.appendChild(backgr);
+    console.log(hotbar);
+});
+*/
 
 Hooks.on("createOwnedItem", (actor, item) => {
     console.log("tinyd6 | handling owned item");

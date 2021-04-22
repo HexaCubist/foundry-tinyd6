@@ -69,12 +69,13 @@
       "none": "None"
     },
     "actor": {
-      "character": "Character",
       "name": "Name",
+      "npc": "NPC",
       "people": "People",
       "traits": "Traits",
       "description": "Description",
       "tiny-cthulhu": {
+        "character": "Bio",
         "heritage": {
           "header": "Archetype",
           "traits": "Archetype Trait",
@@ -82,6 +83,7 @@
         }
       },
       "tiny-dungeon": {
+        "character": "Character",
         "heritage": {
           "header": "Heritage",
           "traits": "Heritage Trait",
