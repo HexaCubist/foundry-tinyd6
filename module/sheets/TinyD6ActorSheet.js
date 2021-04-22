@@ -9,6 +9,12 @@ export default class TinyD6ActorSheet extends ActorSheet {
         data.config.characterHeaderPath = `tinyd6.actor.${data.config.theme}.character`;
         data.config.heritageTraitPath = `tinyd6.actor.${data.config.theme}.heritage.traits`;
         data.config.heritageDeleteTooltipPath = `tinyd6.actor.${data.config.theme}.heritage.delete`;
+
+        // Determine optional element display based on settings
+        data.config.enableCorruption = game.settings.get('tinyd6', 'enableCorruption');
+        data.config.enableDamageReduction = game.settings.get('tinyd6', 'enableDamageReduction');
+        data.config.advancementMethod = game.settings.get('tinyd6', 'enableAdvancement');
+        
         data.owner = this.actor.owner;
         data.traits = data.items.filter(item => { return item.type === "trait" });
         data.weapons = data.items.filter(item => { return item.type === "weapon" && item.data.equipped });

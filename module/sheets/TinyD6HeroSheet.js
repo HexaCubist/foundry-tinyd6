@@ -20,11 +20,6 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
             data.armorTotal += item.data.damageReduction;
         });
         
-        // Determine optional element display based on settings
-        data.config.enableCorruption = game.settings.get('tinyd6', 'enableCorruption');
-        data.config.enableDamageReduction = game.settings.get('tinyd6', 'enableDamageReduction');
-        data.config.advancementMethod = game.settings.get('tinyd6', 'enableAdvancement');
-
         return data;
     }
 

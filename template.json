@@ -14,6 +14,9 @@
         "traits": {},
         "description": ""
       },
+      "causesCorruption": {
+        "corruptionTest": "standard"
+      },
       "namedCharacter": {
         "heritage": {},
         "people": "",
@@ -51,7 +54,7 @@
       "templates": [ "commonStats", "namedCharacter", "hero" ]
     },
     "npc": {
-      "templates": [ "commonStats" ]
+      "templates": [ "commonStats", "causesCorruption" ]
     }
   },
   "Item": {

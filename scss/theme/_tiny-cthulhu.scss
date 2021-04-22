@@ -54,7 +54,7 @@
       }
 
       .character,
-      .traits,
+      .traits:not(.standalone),
       .inventory
       {
         position: relative;
@@ -104,7 +104,7 @@
         @import "../partial/label_tabs";
       }
 
-      .traits
+      .traits:not(.standalone)
       {
         .floating-action
         {

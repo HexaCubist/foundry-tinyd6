@@ -111,6 +111,7 @@
         "help": "Check a box when you suffer damage. Uncheck when healed."
       },
       "corruption": {
+        "test": "Corruption Test",
         "header": "Corruption",
         "current": "Current",
         "max": "Max:",
@@ -145,6 +146,11 @@
       "light": "Light",
       "medium": "Medium",
       "heavy": "Heavy"
+    },
+    "corruptionTests": {
+      "none": "None",
+      "disadvantage": "Disadvantage",
+      "standard": "Standard"
     },
     "weapon": {
       "name": "Name",

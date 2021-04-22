@@ -34,3 +34,9 @@ tinyd6.armorTypes = {
     medium: "tinyd6.armorTypes.medium",
     heavy: "tinyd6.armorTypes.heavy"
 }
+
+tinyd6.corruptionTests = {
+    none: "tinyd6.corruptionTests.none",
+    disadvantage: "tinyd6.corruptionTests.disadvantage",
+    standard: "tinyd6.corruptionTests.standard"
+}
