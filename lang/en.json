@@ -7,9 +7,49 @@
       "dieRoller": "Tests"
     },
     "settings": {
+      "title": "System Settings",
+      "label": "System Settings",
+      "description": "Choose the optional rules and mechanics you would like to enable from the options below.",
       "theme": {
         "name": "Theme",
-        "hint": "Set this to theme your world for a specific Tiny D6 game"
+        "hint": "Set this to theme your world for a specific Tiny D6 game",
+        "choices": {
+          "cthulhu": "Tiny Cthulhu",
+          "dungeon": "Tiny Dungeon 2e"
+        }
+      },
+      "enableCorruption": {
+        "name": "Enable Corruption Track",
+        "hint": "Add a track to the character sheet for Corruption."
+      },
+      "enableAdvancement": {
+        "name": "Character Advancement",
+        "hint": "Characters progress either based on a number of sessions or by awarding experience points",
+        "choices": {
+          "none": "None",
+          "minimalist": "Minimalist Advancement",
+          "xp": "Experience Points"
+        }
+      },
+      "enableItemTracking": {
+        "name": "Enable Item Tracking",
+        "hint": "Show slot use for items and calculate remaining inventory slots."
+      },
+      "enableDepletionPoints": {
+        "name": "Enable Item Expenditure/Depletion",
+        "hint": "When item uses depletion points, track them for character items."
+      },
+      "enableCriticalHits": {
+        "name": "Enable Critical Hits",
+        "hint": "Mark Test as 'Critical Success' when all dice ore 5 or 6."
+      },
+      "enableVariableWeaponDamage": {
+        "name": "Variable Weapon Damage",
+        "hint": "Calculate variable weapon damage for attack tests."
+      },
+      "enableDamageReduction": {
+        "name": "Enable Damage Reduction",
+        "hint": "Armor provides a static damage reduction rating when equipped."
       }
     },
     "dice": {
@@ -56,6 +96,7 @@
       "belief": "Belief",
       "xp": {
         "header": "Experience",
+        "progression": "Progression",
         "total": "Total",
         "spent": "Spent",
         "remaining": "Remaining"

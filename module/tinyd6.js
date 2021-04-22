@@ -1,8 +1,9 @@
-import {tinyd6} from "./config.js";
+import { tinyd6 } from "./config.js";
 import TinyD6ItemSheet from "./sheets/TinyD6ItemSheet.js";
 import TinyD6HeroSheet from "./sheets/TinyD6HeroSheet.js";
 import TinyD6NpcSheet from "./sheets/TinyD6NpcSheet.js";
 import DieRoll from "./applications/DieRoll.js";
+import { localizeAll } from "./helpers/utils.js";
 
 async function preloadHandlebarsTemplates() {
     const templatePaths = [
@@ -25,9 +26,74 @@ function registerGameSettings()
         hint:  game.i18n.localize("tinyd6.settings.theme.hint"),
         scope: "world",
         config: false,
+        choices: localizeAll(CONFIG.tinyd6.themes),
         default: "tiny-cthulhu",
         type: String
-    })
+    });
+
+    game.settings.register("tinyd6", "enableCorruption", {
+        name: game.i18n.localize("tinyd6.settings.enableCorruption.name"),
+        hint:  game.i18n.localize("tinyd6.settings.enableCorruption.hint"),
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean
+    });
+
+    game.settings.register("tinyd6", "enableAdvancement", {
+        name: game.i18n.localize("tinyd6.settings.enableAdvancement.name"),
+        hint:  game.i18n.localize("tinyd6.settings.enableAdvancement.hint"),
+        scope: "world",
+        config: true,
+        choices: localizeAll(CONFIG.tinyd6.advancementMethods),
+        default: "none",
+        type: String
+    });
+
+    game.settings.register("tinyd6", "enableItemTracking", {
+        name: game.i18n.localize("tinyd6.settings.enableItemTracking.name"),
+        hint:  game.i18n.localize("tinyd6.settings.enableItemTracking.hint"),
+        scope: "world",
+        config: false,
+        default: false,
+        type: Boolean
+    });
+
+    game.settings.register("tinyd6", "enableDepletionPoints", {
+        name: game.i18n.localize("tinyd6.settings.enableDepletionPoints.name"),
+        hint:  game.i18n.localize("tinyd6.settings.enableDepletionPoints.hint"),
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean
+    });
+
+    game.settings.register("tinyd6", "enableVariableWeaponDamage", {
+        name: game.i18n.localize("tinyd6.settings.enableVariableWeaponDamage.name"),
+        hint:  game.i18n.localize("tinyd6.settings.enableVariableWeaponDamage.hint"),
+        scope: "world",
+        config: false,
+        default: false,
+        type: Boolean
+    });
+
+    game.settings.register("tinyd6", "enableCriticalHits", {
+        name: game.i18n.localize("tinyd6.settings.enableCriticalHits.name"),
+        hint:  game.i18n.localize("tinyd6.settings.enableCriticalHits.hint"),
+        scope: "world",
+        config: false,
+        default: false,
+        type: Boolean
+    });
+
+    game.settings.register("tinyd6", "enableDamageReduction", {
+        name: game.i18n.localize("tinyd6.settings.enableDamageReduction.name"),
+        hint:  game.i18n.localize("tinyd6.settings.enableDamageReduction.hint"),
+        scope: "world",
+        config: true,
+        default: false,
+        type: Boolean
+    });
 }
 
 Hooks.once("init", () => {

@@ -10,6 +10,17 @@ tinyd6.weaponTypes = {
     heavy: "tinyd6.weaponTypes.heavy"
 }
 
+tinyd6.themes = {
+    "tiny-cthulhu": "tinyd6.settings.theme.choices.cthulhu",
+    "tiny-dungeon": "tinyd6.settings.theme.choices.dungeon"
+}
+
+tinyd6.advancementMethods = {
+    "none": "tinyd6.settings.enableAdvancement.choices.none",
+    "minimalist": "tinyd6.settings.enableAdvancement.choices.minimalist",
+    "xp": "tinyd6.settings.enableAdvancement.choices.xp"
+}
+
 tinyd6.weaponCategories = {
     none: "",
     melee: "tinyd6.weaponCategories.melee",

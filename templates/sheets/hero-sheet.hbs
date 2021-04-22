@@ -66,46 +66,62 @@
                     <p class="help">{{localize "tinyd6.actor.wounds.help"}}</p>
                 {{/if}}
             </div>
-            <div class="col">
-                <div class="d-flex justify-content-between">
-                    <h2 class="section-header">{{localize "tinyd6.actor.corruption.header"}}</h2>
-                    <span class="d-flex justify-content-end ml-auto">
+            {{#if config.enableCorruption}}
+                <div class="col">
+                    <div class="d-flex justify-content-between">
+                        <h2 class="section-header">{{localize "tinyd6.actor.corruption.header"}}</h2>
+                        <span class="d-flex justify-content-end ml-auto">
                         <span class="mr-2">{{localize "tinyd6.actor.corruption.max"}}</span>
-                        {{#if owner}}
-                            <input name="data.corruptionThreshold.max" type="text" class="mx-2" style="width: 10%;" value="{{data.corruptionThreshold.max}}" dType="Number"/>
-                        {{^}}
-                            <span>{{data.corruptionThreshold.max}}</span>
-                        {{/if}}
+                            {{#if owner}}
+                                <input name="data.corruptionThreshold.max" type="text" class="mx-2" style="width: 10%;" value="{{data.corruptionThreshold.max}}" dType="Number"/>
+                            {{^}}
+                                <span>{{data.corruptionThreshold.max}}</span>
+                            {{/if}}
                     </span>
+                    </div>
+                    <div class="corruption-meter">
+                        {{#times data.corruptionThreshold.max}}
+                            <input type="checkbox" value="1" class="corruption-box d-inline-block" {{#if (lt . ../data.corruptionThreshold.value)}}checked{{/if}} />
+                        {{/times}}
+                    </div>
+                    {{#if owner}}
+                        <p class="help">{{localize "tinyd6.actor.corruption.help"}}</p>
+                    {{/if}}
                 </div>
-                <div class="health-meter">
-                    {{#times data.corruptionThreshold.max}}
-                        <input type="checkbox" value="1" class="corruption-box d-inline-block" {{#if (lt . ../data.corruptionThreshold.value)}}checked{{/if}} />
-                    {{/times}}
+            {{/if}}
+            {{#if (eq config.advancementMethod 'xp')}}
+                <div class="col-3">
+                    <section class="experience d-flex flex-column justify-content-between">
+                        <h3 class="section-header">{{localize "tinyd6.actor.xp.header"}}</h3>
+                        <div class="stat-values property d-flex justify-content-between border-bottom">
+                            <label class="mr-2"><span>{{localize "tinyd6.actor.xp.total"}}</span></label>
+                            <input name="data.xp.max" class="text-right" type="text" value="{{data.xp.max}}" placeholder="{{localize "tinyd6.actor.xp.total"}}" dType="Number"/>
+                        </div>
+                        <div class="stat-values property d-flex justify-content-between border-bottom">
+                            <label class="mr-2"><span>{{localize "tinyd6.actor.xp.spent"}}</span></label>
+                            <input name="data.xp.spent" class="text-right" type="text" value="{{data.xp.spent}}" placeholder="{{localize "tinyd6.actor.xp.spent"}}" dType="Number"/>
+                        </div>
+                        <div class="stat-values property d-flex justify-content-between border-bottom">
+                            <label class="mr-2"><span>{{localize "tinyd6.actor.xp.remaining"}}</span></label>
+                            <span class="d-block">
+                                {{data.xp.remaining}}
+                            </span>
+                        </div>
+                    </section>
                 </div>
-                {{#if owner}}
-                    <p class="help">{{localize "tinyd6.actor.corruption.help"}}</p>
-                {{/if}}
-            </div>
-            <div class="col-3">
-                <section class="experience d-flex flex-column justify-content-between">
-                    <h3 class="section-header">{{localize "tinyd6.actor.xp.header"}}</h3>
-                    <div class="stat-values property d-flex justify-content-between border-bottom">
-                        <label class="mr-2"><span>{{localize "tinyd6.actor.xp.total"}}</span></label>
-                        <input name="data.xp.max" class="text-right" type="text" value="{{data.xp.max}}" placeholder="{{localize "tinyd6.actor.xp.total"}}" dType="Number"/>
-                    </div>
-                    <div class="stat-values property d-flex justify-content-between border-bottom">
-                        <label class="mr-2"><span>{{localize "tinyd6.actor.xp.spent"}}</span></label>
-                        <input name="data.xp.spent" class="text-right" type="text" value="{{data.xp.spent}}" placeholder="{{localize "tinyd6.actor.xp.spent"}}" dType="Number"/>
-                    </div>
-                    <div class="stat-values property d-flex justify-content-between border-bottom">
-                        <label class="mr-2"><span>{{localize "tinyd6.actor.xp.remaining"}}</span></label>
-                        <span class="d-block">
-                            {{data.xp.remaining}}
-                        </span>
-                    </div>
-                </section>
-            </div>
+            {{/if}}
+            {{#if (eq config.advancementMethod 'minimalist')}}
+                <div class="col-3">
+                    <section class="experience d-flex flex-column justify-content-between">
+                        <h3 class="section-header">{{localize "tinyd6.actor.xp.progression"}}</h3>
+                        <div class="d-flex">
+                            {{#times data.advancement.max}}
+                                <input type="checkbox" value="1" class="advancement-progress-box d-inline-block" {{#if (lt . ../data.advancement.value)}}checked{{/if}} />
+                            {{/times}}
+                        </div>
+                    </section>
+                </div>
+            {{/if}}
         </div>
     </section>
 
@@ -193,7 +209,7 @@
                     {{/each}}
                 </div>
                 <div class="col-4 equipped-armor">
-                    <span class="total-armor">{{armorTotal}}</span>
+                    <span class="total-armor">{{#if config.enableDamageReduction}}{{armorTotal}}{{^}}&nbsp;{{/if}}</span>
                     {{#each armor as |armor id|}}
                         <span>{{armor.name}}</span>
                     {{/each}}

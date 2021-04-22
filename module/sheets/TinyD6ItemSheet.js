@@ -1,7 +1,7 @@
 export default class TinyD6ItemSheet extends ItemSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: [ "tinyd6", "sheet", "item", CONFIG.tinyd6.theme ]
+            classes: [ "tinyd6", "sheet", "item", game.settings.get("tinyd6", "theme") ]
         });
     }
 

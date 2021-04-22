@@ -27,6 +27,10 @@
           "max": 0,
           "spent": 0
         },
+        "advancement":{
+          "value": 0,
+          "max": 3
+        },
         "proficiencies": {
           "lightMelee": false,
           "heavyMelee": false,

@@ -5,7 +5,7 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             template: "systems/tinyd6/templates/sheets/hero-sheet.hbs",
-            classes: [ "tinyd6", "sheet", "hero", CONFIG.tinyd6.theme ]
+            classes: [ "tinyd6", "sheet", "hero", game.settings.get("tinyd6", "theme") ]
         });
     }
 
@@ -19,6 +19,11 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
         data.armor.forEach((item, n) => {
             data.armorTotal += item.data.damageReduction;
         });
+        
+        // Determine optional element display based on settings
+        data.config.enableCorruption = game.settings.get('tinyd6', 'enableCorruption');
+        data.config.enableDamageReduction = game.settings.get('tinyd6', 'enableDamageReduction');
+        data.config.advancementMethod = game.settings.get('tinyd6', 'enableAdvancement');
 
         return data;
     }
@@ -29,6 +34,7 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
         html.find(".toggle-marksman").on('click change', this._setMarksmanTrait.bind(this));
         html.find(".health-box").on('click change', this._setCurrentDamage.bind(this));
         html.find(".corruption-box").on('click change', this._setCurrentCorruption.bind(this));
+        html.find(".advancement-progress-box").on('click change', this._setAdvancementProgress.bind(this));
 
         super.activateListeners(html);
     }
@@ -62,6 +68,9 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
                 data: {
                     wounds: {
                         value: (currentDamage + 1)
+                    },
+                    advancement: {
+                        max: 3
                     }
                 }
             });
@@ -104,6 +113,37 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
                 data: {
                     corruptionThreshold: {
                         value: (currentCorruption - 1)
+                    }
+                }
+            });
+        }
+    }
+
+    _setAdvancementProgress(event)
+    {
+        event.preventDefault();
+
+        const element = event.currentTarget;
+        const currentProgress = parseInt(this.actor.data.data.advancement.value ?? 0);
+        console.log(currentProgress);
+        if (element.checked)
+        {
+            this.actor.update({
+                _id: this.actor._id,
+                data: {
+                    advancement: {
+                        value: (currentProgress + 1)
+                    }
+                }
+            });
+        }
+        else if (currentProgress > 0)
+        {
+            this.actor.update({
+                _id: this.actor._id,
+                data: {
+                    advancement: {
+                        value: (currentProgress - 1)
                     }
                 }
             });
