@@ -1,6 +1,10 @@
 # Release Notes
+    
+## v0.1.0-beta2
 
-## v0.1.0-beta
+- Updated manifest to identify system as Unofficial.
+
+## v0.1.0-beta1
 
 - Initial public beta release
 - Basic die rolls
