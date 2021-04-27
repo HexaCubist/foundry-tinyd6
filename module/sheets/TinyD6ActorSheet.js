@@ -33,6 +33,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
         html.find(".roll-dice").click(this._onDieRoll.bind(this));
 
         html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
+        html.find(".health-box").on('click change', this._setCurrentDamage.bind(this));
 
         super.activateListeners(html);
     }
@@ -169,5 +170,38 @@ export default class TinyD6ActorSheet extends ActorSheet {
                 equipped: !item.data.data.equipped,
             },
         };
+    }
+
+    _setCurrentDamage(event)
+    {
+        event.preventDefault();
+
+        const element = event.currentTarget;
+        const currentDamage = parseInt(this.actor.data.data.wounds.value ?? 0);
+        if (element.checked)
+        {
+            this.actor.update({
+                _id: this.actor._id,
+                data: {
+                    wounds: {
+                        value: (currentDamage + 1)
+                    },
+                    advancement: {
+                        max: 3
+                    }
+                }
+            });
+        }
+        else if (currentDamage > 0)
+        {
+            this.actor.update({
+                _id: this.actor._id,
+                data: {
+                    wounds: {
+                        value: (currentDamage - 1)
+                    }
+                }
+            });
+        }
     }
 }

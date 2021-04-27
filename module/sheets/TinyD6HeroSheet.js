@@ -27,7 +27,6 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
     {
         html.find(".toggle-focus").click(this._setFocusAction.bind(this));
         html.find(".toggle-marksman").on('click change', this._setMarksmanTrait.bind(this));
-        html.find(".health-box").on('click change', this._setCurrentDamage.bind(this));
         html.find(".corruption-box").on('click change', this._setCurrentCorruption.bind(this));
         html.find(".advancement-progress-box").on('click change', this._setAdvancementProgress.bind(this));
 
@@ -48,39 +47,6 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
 
         const form = $(element.closest("form"));
         Dice.setMarksmanOption(form, element);
-    }
-
-    _setCurrentDamage(event)
-    {
-        event.preventDefault();
-        
-        const element = event.currentTarget;
-        const currentDamage = parseInt(this.actor.data.data.wounds.value ?? 0);
-        if (element.checked)
-        {
-            this.actor.update({
-                _id: this.actor._id,
-                data: {
-                    wounds: {
-                        value: (currentDamage + 1)
-                    },
-                    advancement: {
-                        max: 3
-                    }
-                }
-            });
-        }
-        else if (currentDamage > 0)
-        {
-            this.actor.update({
-                _id: this.actor._id,
-                data: {
-                    wounds: {
-                        value: (currentDamage - 1)
-                    }
-                }
-            });
-        }
     }
 
     _setCurrentCorruption(event)
