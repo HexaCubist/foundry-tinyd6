@@ -22,5 +22,7 @@
     ],
     "gridDistance": 5,
     "gridUnits": "ft",
-    "initiative": "2d6"
+    "initiative": "2d6",
+    "manifest": "https://gitlab.com/architech99/foundry-tinyd6/-/raw/master/system.json",
+    "download": "https://gitlab.com/architech99/foundry-tinyd6/-/archive/master/foundry-tinyd6-master.zip"
 }
