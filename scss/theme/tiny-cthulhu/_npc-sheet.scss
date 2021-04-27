@@ -1,12 +1,19 @@
 &.npc
 {
-  .character
+  .actor-sheet
   {
-    margin-top: toRem(16px);
+    display: flex;
+    flex-direction: column;
   }
 
-  .character,
-  .trauma
+  .character
+  {
+    
+    margin-top: toRem(16px);
+    height: 100%;
+  }
+
+  .character
   {
     margin-bottom: toRem(15px);
   }
