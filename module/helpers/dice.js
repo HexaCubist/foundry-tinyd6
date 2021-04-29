@@ -54,3 +54,24 @@ export function setMarksmanOption(form, element)
         tag.dataset.enableMarksman = element.checked;
     });
 }
+
+export function diceToFaces(value, content)
+{
+    switch (value)
+    {
+        case 1:
+            return "fa-dice-one";
+        case 2:
+            return "fa-dice-two";
+        case 3:
+            return "fa-dice-three";
+        case 4:
+            return "fa-dice-four";
+        case 5:
+            return "fa-dice-five";
+        case 6:
+            return "fa-dice-six";
+    }
+
+    return "fa-dice-d6";
+}

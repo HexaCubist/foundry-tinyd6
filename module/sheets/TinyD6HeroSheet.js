@@ -4,6 +4,7 @@ import * as Dice from "../helpers/dice.js";
 export default class TinyD6HeroSheet extends TinyD6ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
+            height: 640,
             template: "systems/tinyd6/templates/sheets/hero-sheet.hbs",
             classes: [ "tinyd6", "sheet", "hero", game.settings.get("tinyd6", "theme") ]
         });

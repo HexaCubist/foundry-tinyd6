@@ -4,6 +4,7 @@ import TinyD6HeroSheet from "./sheets/TinyD6HeroSheet.js";
 import TinyD6NpcSheet from "./sheets/TinyD6NpcSheet.js";
 import DieRoll from "./applications/DieRoll.js";
 import { localizeAll } from "./helpers/utils.js";
+import { diceToFaces } from "./helpers/dice.js";
 
 async function preloadHandlebarsTemplates() {
     const templatePaths = [
@@ -110,8 +111,8 @@ Hooks.once("init", () => {
     // CONFIG.debug.hooks = true;
 
     Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("tinyd6", TinyD6HeroSheet, { makeDefault: true });
-    Actors.registerSheet("tinyd6", TinyD6NpcSheet);
+    Actors.registerSheet("tinyd6", TinyD6HeroSheet, { makeDefault: true, types: ["hero"] });
+    Actors.registerSheet("tinyd6", TinyD6NpcSheet, { types: ["npc"] });
 
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("tinyd6", TinyD6ItemSheet, { makeDefault: true });
@@ -130,26 +131,7 @@ Hooks.once("init", () => {
         return result;
     });
 
-    Handlebars.registerHelper("face", function(value, content)
-    {
-        switch (value)
-        {
-            case 1:
-                return "fa-dice-one";
-            case 2:
-                return "fa-dice-two";
-            case 3:
-                return "fa-dice-three";
-            case 4:
-                return "fa-dice-four";
-            case 5:
-                return "fa-dice-five";
-            case 6:
-                return "fa-dice-six";
-        }
-
-        return "fa-dice-d6";
-    });
+    Handlebars.registerHelper("face", diceToFaces);
 });
 
 Hooks.once("setup", event => {
