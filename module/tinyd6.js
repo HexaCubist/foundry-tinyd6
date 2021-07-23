@@ -236,7 +236,7 @@ Hooks.on("createItem", (item, temporary) => {
                     max: item.data.data.startingHealth
                 },
                 corruptionThreshold: {
-                    value: item.data.data.corruptionThreshold,
+                    value: 0,
                     max: item.data.data.corruptionThreshold
                 }
             }

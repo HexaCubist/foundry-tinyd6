@@ -38,7 +38,7 @@
         <div class="stat-values">
             <div class="description property">
                 <label class="border-bottom"><span>{{localize "tinyd6.actor.description"}}</span></label>
-                {{editor content=data.data.description target="data.data.description" button=true owner=owner editable=editable}}
+                {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
             </div>
         </div>
     </section>
@@ -130,25 +130,25 @@
         <div class="d-flex justify-content-start">
             <div class="light mr-4">
                 <label>
-                    <input type="checkbox" name="data.data.data.proficiencies.lightMelee" {{checked data.data.proficiencies.lightMelee}}/>
+                    <input type="checkbox" name="data.proficiencies.lightMelee" {{checked data.data.proficiencies.lightMelee}}/>
                     {{localize "tinyd6.weapon.lightMelee"}}
                 </label>
             </div>
             <div class="heavy mr-4">
                 <label>
-                    <input type="checkbox" name="data.data.proficiencies.heavyMelee" {{checked data.data.proficiencies.heavyMelee}}/>
+                    <input type="checkbox" name="data.proficiencies.heavyMelee" {{checked data.data.proficiencies.heavyMelee}}/>
                     {{localize "tinyd6.weapon.heavyMelee"}}
                 </label>
             </div>
             <div class="ranged mr-4">
                 <label>
-                    <input type="checkbox" name="data.data.proficiencies.lightRanged" {{checked data.data.proficiencies.lightRanged}}/>
+                    <input type="checkbox" name="data.proficiencies.lightRanged" {{checked data.data.proficiencies.lightRanged}}/>
                     {{localize "tinyd6.weapon.lightRanged"}}
                 </label>
             </div>
             <div class="ranged mr-4">
                 <label>
-                    <input type="checkbox" name="data.data.proficiencies.heavyRanged" {{checked data.data.proficiencies.heavyRanged}}/>
+                    <input type="checkbox" name="data.proficiencies.heavyRanged" {{checked data.data.proficiencies.heavyRanged}}/>
                     {{localize "tinyd6.weapon.heavyRanged"}}
                 </label>
             </div>
