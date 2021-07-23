@@ -20,7 +20,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
         data.data.data.weapons = data.data.items.filter(item => { return item.type === "weapon" && item.data.equipped });
         data.data.data.armor = data.data.items.filter(item => { return item.type === "armor" && item.data.equipped });
         data.data.data.gear = data.data.items.filter(item => { return item.type !== "trait" && item.type !== "heritage" });
-
+console.log("tinyd6 | ACTOR", data);
         return data;
     }
 
