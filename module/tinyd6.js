@@ -10,6 +10,7 @@ async function preloadHandlebarsTemplates() {
     const templatePaths = [
         "systems/tinyd6/templates/partials/trait-block.hbs",
         "systems/tinyd6/templates/partials/roll-bar.hbs",
+        "systems/tinyd6/templates/partials/item-header.hbs",
         "systems/tinyd6/templates/partials/inventory-card.hbs"
     ];
 
@@ -219,19 +220,24 @@ Hooks.once("ready", event => {
 });
 */
 
-Hooks.on("createOwnedItem", (actor, item) => {
+Hooks.on("createItem", (item, temporary) => {
     console.log("tinyd6 | handling owned item");
+
+    console.log("ACTOR:", item.actor);
+    console.log("ITEM:", item);
 
     if (item.type === "heritage")
     {
-        actor.update({
-            _id: actor._id,
+        item.actor.data.update({
+            _id: item.actor.data._id,
             data: {
                 wounds: {
-                    max: item.data.startingHealth
+                    value: item.data.data.startingHealth,
+                    max: item.data.data.startingHealth
                 },
                 corruptionThreshold: {
-                    max: item.data.corruptionThreshold
+                    value: 0,
+                    max: item.data.data.corruptionThreshold
                 }
             }
         });

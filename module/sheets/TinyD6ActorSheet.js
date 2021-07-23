@@ -15,11 +15,11 @@ export default class TinyD6ActorSheet extends ActorSheet {
         data.config.enableDamageReduction = game.settings.get('tinyd6', 'enableDamageReduction');
         data.config.advancementMethod = game.settings.get('tinyd6', 'enableAdvancement');
         
-        data.owner = this.actor.owner;
-        data.traits = data.items.filter(item => { return item.type === "trait" });
-        data.weapons = data.items.filter(item => { return item.type === "weapon" && item.data.equipped });
-        data.armor = data.items.filter(item => { return item.type === "armor" && item.data.equipped });
-        data.gear = data.items.filter(item => { return item.type !== "trait" && item.type !== "heritage" });
+        data.data.data.owner = this.actor.isOwner;
+        data.data.data.traits = data.data.items.filter(item => { return item.type === "trait" });
+        data.data.data.weapons = data.data.items.filter(item => { return item.type === "weapon" && item.data.equipped });
+        data.data.data.armor = data.data.items.filter(item => { return item.type === "armor" && item.data.equipped });
+        data.data.data.gear = data.data.items.filter(item => { return item.type !== "trait" && item.type !== "heritage" });
 
         return data;
     }
@@ -71,8 +71,9 @@ export default class TinyD6ActorSheet extends ActorSheet {
         let height = Math.min(...heights.filter(h => Number.isFinite(h)));
 
         // Get initial content
-        const data = this.entity instanceof Entity ? this.entity.data : this.entity;
-        const initialContent = getProperty(data, name);
+        const initialContent = getProperty(this.object.data, name);
+        console.log("tinyd6 | name: ", name);
+        console.log("tinyd6 | initialContent:", initialContent);
         const editorOptions = {
             target: div,
             height: height,
@@ -134,7 +135,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
         event.preventDefault();
         let element = event.currentTarget;
         let itemId = element.closest("[data-item-id]").dataset.itemId;
-        return this.actor.deleteOwnedItem(itemId);
+        return this.actor.data.items.get(itemId).delete();
     }
 
     _onItemShow(event)
@@ -142,7 +143,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
         event.preventDefault();
         let element = event.currentTarget;
         let itemId = element.closest("[data-item-id]").dataset.itemId;
-        let item = this.actor.getOwnedItem(itemId);
+        let item = this.actor.data.items.get(itemId);
 
         item.sheet.render(true);
     }
@@ -152,9 +153,9 @@ export default class TinyD6ActorSheet extends ActorSheet {
         event.preventDefault();
         let element = event.currentTarget;
         let itemId = element.closest("[data-item-id]").dataset.itemId;
-        let item = this.actor.getOwnedItem(itemId);
+        let item = this.actor.items.get(itemId);
 
-        return this.actor.updateOwnedItem(this._toggleEquipped(itemId, item));
+        return item.update(this._toggleEquipped(itemId, item));
     }
 
     _toggleActionButton(event)
@@ -181,7 +182,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
         if (element.checked)
         {
             this.actor.update({
-                _id: this.actor._id,
+                _id: this.actor.data._id,
                 data: {
                     wounds: {
                         value: (currentDamage + 1)
@@ -195,7 +196,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
         else if (currentDamage > 0)
         {
             this.actor.update({
-                _id: this.actor._id,
+                _id: this.actor.data._id,
                 data: {
                     wounds: {
                         value: (currentDamage - 1)

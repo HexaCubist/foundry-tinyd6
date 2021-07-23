@@ -1,25 +1,22 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <header class="sheet-header">
-        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
-        <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'tinyd6.weapon.name'}}"/></h1>
-    </header>
+    {{> "systems/tinyd6/templates/partials/item-header.hbs" placeholder='tinyd6.weapon.name'}}
     <table>
         <tr>
-            <th>{{localize 'tinyd6.weapon.type'}}</th>
-            <th>{{localize 'tinyd6.weapon.damage'}}</th>
-            <th>{{localize 'tinyd6.weapon.slots'}}</th>
+            <th class="text-nowrap">{{localize 'tinyd6.weapon.type'}}</th>
+            <th class="text-nowrap">{{localize 'tinyd6.weapon.damage'}}</th>
+            <th class="text-nowrap">{{localize 'tinyd6.weapon.slots'}}</th>
         </tr>
         <tr>
-            <td>
-                <select name="data.damageType">
-                    {{#select data.damageType}}
+            <td class="text-nowrap">
+                <select name="data.data.damageType">
+                    {{#select data.data.damageType}}
                         {{#each config.weaponTypes as |name type|}}
                             <option value="{{type}}">{{localize name}}</option>
                         {{/each}}
                     {{/select}}
                 </select>
-                <select name="data.group">
-                    {{#select data.group}}
+                <select name="data.data.group">
+                    {{#select data.data.group}}
                         {{#each config.weaponCategories as |name type|}}
                             <option value="{{type}}">{{localize name}}</option>
                         {{/each}}
@@ -27,12 +24,12 @@
                 </select>
             </td>
             <td>
-                <input type="text" name="data.damage" value="{{data.damage}}" data-dtype="Number"/>
+                <input type="text" class="text-center" name="data.data.damage" value="{{data.data.damage}}" dType="Number"/>
             </td>
             <td>
-                <input type="text" name="data.slots" value="{{data.slots}}" data-dtype="Number"/>
+                <input type="text" class="text-center" name="data.data.slots" value="{{data.data.slots}}" dType="Number"/>
             </td>
         </tr>
     </table>
-    {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+    {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
 </form>
