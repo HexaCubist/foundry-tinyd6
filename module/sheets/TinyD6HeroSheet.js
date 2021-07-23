@@ -4,7 +4,6 @@ import * as Dice from "../helpers/dice.js";
 export default class TinyD6HeroSheet extends TinyD6ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            height: 640,
             template: "systems/tinyd6/templates/sheets/hero-sheet.hbs",
             classes: [ "tinyd6", "sheet", "hero", game.settings.get("tinyd6", "theme") ]
         });
@@ -13,12 +12,12 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
     getData() {
         const data = super.getData();
 
-        data.heritage = data.items.filter(item => { return item.type === "heritage" })[0];
-        data.data.xp.remaining = data.data.xp.max - data.data.xp.spent;
+        data.data.data.heritage = data.data.items.filter(item => { return item.type === "heritage" })[0];
+        data.data.data.xp.remaining = data.data.data.xp.max - data.data.data.xp.spent;
 
-        data.armorTotal = 0;
-        data.armor.forEach((item, n) => {
-            data.armorTotal += item.data.damageReduction;
+        data.data.data.armorTotal = 0;
+        data.data.data.armor.forEach((item, n) => {
+            data.data.data.armorTotal += item.data.damageReduction;
         });
         
         return data;
@@ -56,7 +55,6 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
 
         const element = event.currentTarget;
         const currentCorruption = parseInt(this.actor.data.data.corruptionThreshold.value ?? 0);
-        console.log(currentCorruption);
         if (element.checked)
         {
             this.actor.update({
@@ -71,7 +69,7 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
         else if (currentCorruption > 0)
         {
             this.actor.update({
-                _id: this.actor._id,
+                _id: this.actor.data._id,
                 data: {
                     corruptionThreshold: {
                         value: (currentCorruption - 1)
@@ -87,11 +85,10 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
 
         const element = event.currentTarget;
         const currentProgress = parseInt(this.actor.data.data.advancement.value ?? 0);
-        console.log(currentProgress);
         if (element.checked)
         {
             this.actor.update({
-                _id: this.actor._id,
+                _id: this.actor.data._id,
                 data: {
                     advancement: {
                         value: (currentProgress + 1)
@@ -102,7 +99,7 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
         else if (currentProgress > 0)
         {
             this.actor.update({
-                _id: this.actor._id,
+                _id: this.actor.data._id,
                 data: {
                     advancement: {
                         value: (currentProgress - 1)

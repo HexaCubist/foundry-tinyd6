@@ -6,12 +6,23 @@ export default class TinyD6ItemSheet extends ItemSheet {
     }
 
     get template() {
-        return `systems/tinyd6/templates/sheets/${this.entity.data.type}-sheet.hbs`;
+        return `systems/tinyd6/templates/sheets/${this.document.data.type}-sheet.hbs`;
+    }
+
+    getData() {
+        const data = super.getData();
+
+        data.data.traits = {};
+        data.config = CONFIG.tinyd6;
+
+        console.log("tinyd6 | ITEM DATA (after)", data);
+        return data;
     }
 
     activateListeners(html)
     {
         html.find('.editor-content[data-edit]').each((i, div) => this._activateEditor(div));
+        super.activateListeners(html);
     }
 
 
@@ -48,8 +59,11 @@ export default class TinyD6ItemSheet extends ItemSheet {
         let height = Math.min(...heights.filter(h => Number.isFinite(h)));
 
         // Get initial content
-        const data = this.object instanceof Entity ? this.object.data : this.object;
-        const initialContent = getProperty(data, name);
+        //const data = this.object instanceof Document ? thisobject.data.data.data : this.object.data.data;
+        //console.log("tinyd6 | EDITOR DATA:", data);
+        const initialContent = getProperty(this.object.data, name);
+        console.log("tinyd6 | name: ", name);
+        console.log("tinyd6 | initialContent:", initialContent);
         const editorOptions = {
             target: div,
             height: height,
@@ -75,14 +89,5 @@ export default class TinyD6ItemSheet extends ItemSheet {
         };
         // Otherwise activate immediately
         else this.activateEditor(name, editorOptions, initialContent);
-    }
-
-    getData() {
-        const data = super.getData();
-        data.traits = {};
-
-        data.config = CONFIG.tinyd6;
-
-        return data;
     }
 }

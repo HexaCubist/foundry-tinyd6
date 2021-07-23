@@ -8,7 +8,7 @@
       "commonStats": {
         "name": "",
         "wounds": {
-          "value": 0,
+          "value": 12,
           "max": 12
         },
         "traits": {},
@@ -45,7 +45,7 @@
       },
       "hero": {
         "corruptionThreshold": {
-          "value": 0,
+          "value": 6,
           "max": 6
         }
       }
