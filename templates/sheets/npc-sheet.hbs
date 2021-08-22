@@ -48,7 +48,7 @@
                             <label class="border-bottom d-flex justify-content-between">
                                 <span>{{localize "tinyd6.actor.corruption.test"}}</span>
                             </label>
-                            <select name="data.data.corruptionTest" class="w-100">
+                            <select name="data.corruptionTest" class="w-100">
                                 {{#select data.data.corruptionTest}}
                                     {{#each config.corruptionTests as |name type|}}
                                         <option value="{{type}}">{{localize name}}</option>
