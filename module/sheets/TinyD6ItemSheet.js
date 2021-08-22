@@ -62,8 +62,6 @@ export default class TinyD6ItemSheet extends ItemSheet {
         //const data = this.object instanceof Document ? thisobject.data.data.data : this.object.data.data;
         //console.log("tinyd6 | EDITOR DATA:", data);
         const initialContent = getProperty(this.object.data, name);
-        console.log("tinyd6 | name: ", name);
-        console.log("tinyd6 | initialContent:", initialContent);
         const editorOptions = {
             target: div,
             height: height,
