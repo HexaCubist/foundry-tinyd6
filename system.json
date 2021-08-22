@@ -3,7 +3,7 @@
     "title": "Tiny D6 (Unofficial)",
     "description": "Tiny D6 system module for Foundry VTT to facilitate playing Tiny D6 games such as Tiny Dungeon and Tiny Frontiers. Currently in Alpha so expect breaking changes in any update.",
     "author": "architech99",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "minimumCoreVersion": "0.8.6",
     "compatibleCoreVersion": "0.8.9",
     "esmodules": [
