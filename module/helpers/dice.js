@@ -19,7 +19,7 @@ export async function RollTest({
     const rollForumla = `${numberOfDice}d${numberOfSides}cs>=${threshold}`;
 
     // Execute the roll
-    let result = new Roll(rollForumla, {}).roll()
+    let result = await new Roll(rollForumla, {}).evaluate({'async': true})
     let renderedRoll = await renderTemplate("systems/tinyd6/templates/partials/test-result.hbs", { rollResult: result });
     // let renderedRoll = await result.render({ result: result, template: "systems/tinyd6/templates/partials/test-result.hbs" });
 
