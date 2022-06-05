@@ -127,7 +127,8 @@ export default class TinyD6ActorSheet extends ActorSheet {
             type: element.dataset.type
         };
 
-        return this.actor.createOwnedItem(itemData);
+    
+        return this.actor.createEmbeddedDocuments('Item', [ itemData ]);
     }
 
     _onItemDelete(event)
