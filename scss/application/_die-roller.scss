@@ -1,0 +1,9 @@
+&.die-roller {
+    z-index: 65;
+    position: fixed;
+    pointer-events: none;
+    flex-wrap: nowrap;
+    display: flex !important;
+    align-items: flex-end;
+    width: fit-content;
+}

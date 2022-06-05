@@ -97,6 +97,13 @@ function registerGameSettings()
         type: Boolean
     });
 
+    game.settings.register("tinyd6", "dieRollerPosition", {
+        scope: "client",
+        config: false,
+        default: null,
+        type: Object
+    });
+
     game.settings.register("tinyd6", "threshold", {
         scope: "world",
         config: false,
