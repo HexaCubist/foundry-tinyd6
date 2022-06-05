@@ -15,7 +15,7 @@ export default class TinyD6ItemSheet extends ItemSheet {
         data.data.traits = {};
         data.config = CONFIG.tinyd6;
 
-        console.log("tinyd6 | ITEM DATA (after)", data);
+        //console.log("tinyd6 | ITEM DATA (after)", data);
         return data;
     }
 
