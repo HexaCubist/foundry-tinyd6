@@ -1,7 +1,9 @@
+import { TinyD6System } from "../tinyd6.js";
+
 export default class TinyD6ItemSheet extends ItemSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: [ "tinyd6", "sheet", "item", game.settings.get("tinyd6", "theme") ]
+            classes: [ TinyD6System.SYSTEM, "sheet", "item", game.settings.get(TinyD6System.SYSTEM, "theme") ]
         });
     }
 

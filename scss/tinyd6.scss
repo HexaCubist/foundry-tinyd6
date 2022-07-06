@@ -8,6 +8,16 @@
 @import "common/mixins";
 @import "fonts";
 
+body 
+{
+  .die-roller:first-child
+  {
+    top: 0px !important;
+    left:0px !important;
+    width:100% !important;
+  }
+}
+
 .tinyd6
 {
   @import "partial/trait-block";
