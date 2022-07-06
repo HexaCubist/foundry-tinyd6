@@ -1,11 +1,12 @@
 import TinyD6ActorSheet from "./TinyD6ActorSheet.js";
 import * as Dice from "../helpers/dice.js";
+import { TinyD6System } from "../tinyd6.js";
 
 export default class TinyD6HeroSheet extends TinyD6ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             template: "systems/tinyd6/templates/sheets/hero-sheet.hbs",
-            classes: [ "tinyd6", "sheet", "hero", game.settings.get("tinyd6", "theme") ]
+            classes: [ TinyD6System.SYSTEM, "sheet", "hero", game.settings.get(TinyD6System.SYSTEM, "theme") ]
         });
     }
 

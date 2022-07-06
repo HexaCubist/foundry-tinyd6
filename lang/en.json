@@ -4,7 +4,7 @@
     "TinyD6NpcSheet": "NPC",
     "system": {
       "name": "Tiny D6 2e",
-      "dieRoller": "Tests"
+      "dieRoller": "Die Roller"
     },
     "settings": {
       "title": "System Settings",

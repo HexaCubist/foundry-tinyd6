@@ -1,4 +1,4 @@
-export function localizeAll(objectToLocalize)
+export const localizeAll = function (objectToLocalize)
 {
     return Object.keys(objectToLocalize).reduce((i18nCfg, key) => {
             i18nCfg[key] = game.i18n.localize(objectToLocalize[key]);

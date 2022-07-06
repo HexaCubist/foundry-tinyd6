@@ -1,28 +1,38 @@
 {
-    "name": "tinyd6",
-    "title": "Tiny D6 (Unofficial)",
-    "description": "Tiny D6 system module for Foundry VTT to facilitate playing Tiny D6 games such as Tiny Dungeon and Tiny Frontiers. Currently in Alpha so expect breaking changes in any update.",
-    "author": "architech99",
-    "version": "0.2.3",
-    "minimumCoreVersion": "9",
-    "compatibleCoreVersion": "9",
-    "esmodules": [
-        "module/tinyd6.js"
-    ],
-    "styles": [
-        "css/tinyd6.css"
-    ],
-    "packs": [],
-    "languages": [
-        {
-            "lang": "en",
-            "name": "English",
-            "path": "lang/en.json"
-        }
-    ],
-    "gridDistance": 5,
-    "gridUnits": "ft",
-    "initiative": "2d6",
-    "manifest": "https://gitlab.com/architech99/foundry-tinyd6/-/raw/master/system.json",
-    "download": "https://gitlab.com/architech99/foundry-tinyd6/-/archive/master/foundry-tinyd6-master.zip"
+  "name": "tinyd6",
+  "title": "Tiny D6 (Unofficial)",
+  "description": "Tiny D6 system module for Foundry VTT to facilitate playing Tiny D6 games such as Tiny Dungeon and Tiny Frontiers. Currently in Alpha so expect breaking changes in any update.",
+  "author": "architech99",
+  "authors": [
+    "architech99"
+  ],
+  "flags": {},
+  "version": "0.3.0",
+  "minimumCoreVersion": "9",
+  "compatibleCoreVersion": "9",
+  "scripts": [],
+  "esmodules": [
+    "module/tinyd6.js",
+    "module/settings.js"
+  ],
+  "styles": [
+    "css/tinyd6.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [],
+  "system": [],
+  "dependencies": [],
+  "socket": false,
+  "manifest": "https://gitlab.com/architech99/foundry-tinyd6/-/raw/master/system.json",
+  "download": "https://gitlab.com/architech99/foundry-tinyd6/-/archive/master/foundry-tinyd6-master.zip",
+  "protected": false,
+  "initiative": "2d6",
+  "gridDistance": 5,
+  "gridUnits": "ft"
 }

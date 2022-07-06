@@ -26,6 +26,9 @@ export default class TinyD6ActorSheet extends ActorSheet {
 
     activateListeners(html)
     {
+        console.log("tinyd6 | activating listeners");
+        console.log("tinyd6 | html", html.find(".roll-dice"));
+
         html.find(".item-add").click(this._onItemCreate.bind(this));
         html.find(".item-show").click(this._onItemShow.bind(this));
         html.find(".item-delete").click(this._onItemDelete.bind(this));
@@ -72,8 +75,8 @@ export default class TinyD6ActorSheet extends ActorSheet {
 
         // Get initial content
         const initialContent = getProperty(this.object.data, name);
-        console.log("tinyd6 | name: ", name);
-        console.log("tinyd6 | initialContent:", initialContent);
+        //console.log("tinyd6 | name: ", name);
+        //console.log("tinyd6 | initialContent:", initialContent);
         const editorOptions = {
             target: div,
             height: height,
@@ -103,6 +106,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
 
     async _onDieRoll(event)
     {
+        console.log("tinyd6 | onDieRoll");
         event.preventDefault();
         const element = event.currentTarget;
 
@@ -113,6 +117,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
             marksmanTrait: element.dataset.enableMarksman
         };
 
+        //TinyD6System.emit('dieRoll', rollData);
         Dice.RollTest(rollData);
     }
 
@@ -127,7 +132,8 @@ export default class TinyD6ActorSheet extends ActorSheet {
             type: element.dataset.type
         };
 
-        return this.actor.createOwnedItem(itemData);
+    
+        return this.actor.createEmbeddedDocuments('Item', [ itemData ]);
     }
 
     _onItemDelete(event)
