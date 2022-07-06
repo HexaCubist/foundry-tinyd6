@@ -39,6 +39,7 @@ export default class DieRoller extends FormApplication {
     }
 
     getPos() {
+        console.log("tinyd6 | getting position");
         this.pos = game.user.getFlag(TinyD6System.SYSTEM, "dieRollerPosition");
 
         if ((this.pos === null) || (this.pos.length === 0)) {
@@ -48,8 +49,6 @@ export default class DieRoller extends FormApplication {
 
             game.user.setFlag(TinyD6System.SYSTEM, "dieRollerPosition", this.pos);
         }
-
-        console.log("tinyd6 | getting position", this.pos);
 
         let result = '';
         if (this.pos != undefined) {
