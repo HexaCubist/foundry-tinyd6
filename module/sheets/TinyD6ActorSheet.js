@@ -2,43 +2,47 @@ import * as Dice from "../helpers/dice.js";
 
 export default class TinyD6ActorSheet extends ActorSheet {
   getData() {
-    const data = super.getData();
+    const context = super.getData();
 
-    data.config = CONFIG.tinyd6;
-    data.config.heritageHeaderPath = `tinyd6.actor.${data.config.theme}.heritage.header`;
-    data.config.characterHeaderPath = `tinyd6.actor.${data.config.theme}.character`;
-    data.config.heritageTraitPath = `tinyd6.actor.${data.config.theme}.heritage.traits`;
-    data.config.heritageDeleteTooltipPath = `tinyd6.actor.${data.config.theme}.heritage.delete`;
+    // Add the actor's data to context.data for easier access, as well as flags.
+    context.system = this.actor.system;
+    context.flags = this.actor.flags;
+
+    context.config = CONFIG.tinyd6;
+    context.config.heritageHeaderPath = `tinyd6.actor.${context.config.theme}.heritage.header`;
+    context.config.characterHeaderPath = `tinyd6.actor.${context.config.theme}.character`;
+    context.config.heritageTraitPath = `tinyd6.actor.${context.config.theme}.heritage.traits`;
+    context.config.heritageDeleteTooltipPath = `tinyd6.actor.${context.config.theme}.heritage.delete`;
 
     // Determine optional element display based on settings
-    data.config.enableCorruption = game.settings.get(
+    context.config.enableCorruption = game.settings.get(
       "tinyd6",
       "enableCorruption"
     );
-    data.config.enableDamageReduction = game.settings.get(
+    context.config.enableDamageReduction = game.settings.get(
       "tinyd6",
       "enableDamageReduction"
     );
-    data.config.advancementMethod = game.settings.get(
+    context.config.advancementMethod = game.settings.get(
       "tinyd6",
       "enableAdvancement"
     );
 
-    data.system.owner = this.actor.isOwner;
-    data.system.traits = data.data.items.filter((item) => {
+    context.system.owner = this.actor.isOwner;
+    context.system.traits = context.data.items.filter((item) => {
       return item.type === "trait";
     });
-    data.system.weapons = data.data.items.filter((item) => {
+    context.system.weapons = context.data.items.filter((item) => {
       return item.type === "weapon" && item.data.equipped;
     });
-    data.system.armor = data.data.items.filter((item) => {
+    context.system.armor = context.data.items.filter((item) => {
       return item.type === "armor" && item.data.equipped;
     });
-    data.system.gear = data.data.items.filter((item) => {
+    context.system.gear = context.data.items.filter((item) => {
       return item.type !== "trait" && item.type !== "heritage";
     });
 
-    return data;
+    return context;
   }
 
   activateListeners(html) {

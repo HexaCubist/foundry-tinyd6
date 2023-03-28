@@ -16,6 +16,7 @@
     "gulp-sass": "^5.1.0"
   },
   "devDependencies": {
+    "@league-of-foundry-developers/foundry-vtt-types": "^9.280.0",
     "@types/gulp-sass": "^5.0.0",
     "sass": "^1.60.0"
   }
