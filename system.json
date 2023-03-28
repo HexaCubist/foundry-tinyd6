@@ -5,7 +5,7 @@
   "author": "architech99 with modifications by Zac",
   "authors": ["architech99", "HexaCubist"],
   "flags": {},
-  "version": "0.4.0",
+  "version": "0.4.1",
   "minimumCoreVersion": "9",
   "compatibleCoreVersion": "10",
   "scripts": [],
