@@ -16,22 +16,23 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
   }
 
   getData() {
-    const data = super.getData();
+    const context = super.getData();
 
-    data.system.heritage = data.data.items.filter((item) => {
+    context.system.heritage = context.data.items.filter((item) => {
       return item.type === "heritage";
     })[0];
-    data.system.xp.remaining = data.system.xp.max - data.system.xp.spent;
+    context.system.xp.remaining =
+      context.system.xp.max - context.system.xp.spent;
 
-    data.system.armorTotal = 0;
-    data.system.armor.forEach((item, n) => {
-      data.system.armorTotal += item.data.damageReduction;
+    context.system.armorTotal = 0;
+    context.system.armor.forEach((item, n) => {
+      context.system.armorTotal += item.data.damageReduction;
     });
 
     // Add roll data for TinyMCE editors.
     context.rollData = context.actor.getRollData();
 
-    return data;
+    return context;
   }
 
   activateListeners(html) {

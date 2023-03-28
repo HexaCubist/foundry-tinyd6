@@ -17,13 +17,13 @@ export default class TinyD6ItemSheet extends ItemSheet {
   }
 
   getData() {
-    const data = super.getData();
+    const context = super.getData();
 
-    data.data.traits = {};
-    data.config = CONFIG.tinyd6;
+    context.data.traits = {};
+    context.config = CONFIG.tinyd6;
 
     //console.log("tinyd6 | ITEM DATA (after)", data);
-    return data;
+    return context;
   }
 
   activateListeners(html) {
