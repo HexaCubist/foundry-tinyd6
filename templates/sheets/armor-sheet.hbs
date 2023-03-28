@@ -8,7 +8,7 @@
         </tr>
         <tr>
             <td>
-                <select name="data.group">
+                <select name="system.group">
                     {{#select system.group}}
                         {{#each config.armorTypes as |name type|}}
                             <option value="{{type}}">{{localize name}}</option>
@@ -17,12 +17,12 @@
                 </select>
             </td>
             <td>
-                <input type="text" class="text-center" name="data.damageReduction" value="{{system.damageReduction}}" data-dtype="Number"/>
+                <input type="text" class="text-center" name="system.damageReduction" value="{{system.damageReduction}}" data-dtype="Number"/>
             </td>
             <td>
-                <input type="text" class="text-center" name="data.slots" value="{{system.slots}}" data-dtype="Number"/>
+                <input type="text" class="text-center" name="system.slots" value="{{system.slots}}" data-dtype="Number"/>
             </td>
         </tr>
     </table>
-    {{editor content=system.description target="data.description" button=true owner=owner editable=editable}}
+    {{editor content=system.description target="system.description" button=true owner=owner editable=editable}}
 </form>

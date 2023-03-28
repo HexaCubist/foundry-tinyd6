@@ -5,12 +5,12 @@
         <a class="item-show d-inline-block h-100">{{gearItem.name}}</a>
     </h4>
     {{#if (eq gearItem.type "weapon")}}
-        <a class="item-control item-equip ml-2 {{#if gearItem.data.equipped}}equipped{{/if}}" data-field="data.equipped" title="{{localize "tinyd6.actor.actions.equipTrait"}}">
+        <a class="item-control item-equip ml-2 {{#if gearItem.system.equipped}}equipped{{/if}}" data-field="system.equipped" title="{{localize "tinyd6.actor.actions.equipTrait"}}">
             <span class="fas fa-tshirt"></span>
         </a>
     {{/if}}
     {{#if (eq gearItem.type "armor")}}
-        <a class="item-control item-equip ml-2 {{#if gearItem.data.equipped}}equipped{{/if}}" data-field="data.equipped" title="{{localize "tinyd6.actor.actions.equipTrait"}}">
+        <a class="item-control item-equip ml-2 {{#if gearItem.system.equipped}}equipped{{/if}}" data-field="system.equipped" title="{{localize "tinyd6.actor.actions.equipTrait"}}">
             <span class="fas fa-tshirt"></span>
         </a>
     {{/if}}
