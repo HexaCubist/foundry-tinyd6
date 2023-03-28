@@ -1,0 +1,138 @@
+&.hero
+{
+  .character,
+  .trauma
+  {
+    margin-bottom: toRem(15px);
+  }
+
+  .proficiencies,
+  .traits
+  {
+    margin-bottom: toRem(24px);
+  }
+
+  .trauma
+  {
+    .health-meter
+    {
+      line-height: toRem(26px);
+    }
+    .increase-max-health
+    {
+      width: toRem(20px);
+      height: toRem(20px);
+      margin: toRem(3px) toRem(5px);
+    }
+  }
+
+  .character,
+  .traits:not(.standalone),
+  .inventory
+  {
+    position: relative;
+    border: toRem(8px) double $gray-900;
+    padding: toRem(15px);
+    z-index: 1;
+
+    h1,h2,h3
+    {
+      &.floating-header
+      {
+        color: $gray-100;
+        background-color: $gray-900;
+        padding: 0.5rem 1.5rem;
+        position: absolute;
+        top: toRem(-36px);
+        right: toRem(16px);
+
+        clip-path:
+          polygon(
+              0% $notchSize,
+              $notchSize 0%,
+              calc(100% - #{$notchSize}) 0%,
+              100% $notchSize,
+              100% calc(100% - #{$notchSize}),
+              calc(100% - #{$notchSize}) 100%,
+              $notchSize 100%,
+              0% calc(100% - #{$notchSize})
+          );
+      }
+
+      &.section-header
+      {
+        @extend .arno-pro;
+        color: $gray-900;
+      }
+    }
+
+    h2
+    {
+      &.floating-header
+      {
+        top: toRem(-24px) !important;
+      }
+    }
+
+    @import "../../partial/label_tabs";
+  }
+
+  .traits:not(.standalone)
+  {
+    .floating-action
+    {
+      color: $gray-100;
+      background-color: $gray-900;
+      padding: 0.5rem 0.75rem;
+      position: absolute;
+      top: toRem(-24px);
+      left: toRem(-12px);
+      z-index: -1;
+
+      clip-path:
+        polygon(
+            0% $notchSize,
+            $notchSize 0%,
+            calc(100% - #{$notchSize}) 0%,
+            100% $notchSize,
+            100% calc(100% - #{$notchSize}),
+            calc(100% - #{$notchSize}) 100%,
+            $notchSize 100%,
+            0% calc(100% - #{$notchSize})
+        );
+
+      a
+      {
+        &:hover
+        {
+          text-shadow: 0 0 toRem(12px) $gray-200;
+        }
+      }
+    }
+  }
+
+  .equipment
+  {
+    .equipped-weapon
+    {
+      line-height: 4rem;
+    }
+
+    .total-armor
+    {
+      display: inline-block;
+      text-align: center;
+      line-height: 4rem;
+      width: 2rem;
+      height: 4rem;
+      margin-right: 1rem;
+
+      font-size: 18pt;
+      font-weight: 600;
+      background-image: url("../assets/icons/armor.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+}

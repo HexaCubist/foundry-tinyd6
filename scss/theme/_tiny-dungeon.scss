@@ -1,0 +1,20 @@
+.tiny-dungeon {
+  @extend .arno-pro;
+
+  &.sheet {
+    @import "tiny-dungeon/window-content";
+  }
+
+  @import "tiny-dungeon/headings";
+  @import "tiny-dungeon/hero-sheet";
+  @import "tiny-dungeon/npc-sheet";
+  @import "tiny-dungeon/die-roller";
+
+  .experience {
+    @import "../partial/label_tabs";
+  }
+
+  .window-content {
+    @extend .tiny-dungeon, .sheet;
+  }
+}

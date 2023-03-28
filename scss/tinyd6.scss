@@ -8,18 +8,15 @@
 @import "common/mixins";
 @import "fonts";
 
-body 
-{
-  .die-roller:first-child
-  {
+body {
+  .die-roller:first-child {
     top: 0px !important;
-    left:0px !important;
-    width:100% !important;
+    left: 0px !important;
+    width: 100% !important;
   }
 }
 
-.tinyd6
-{
+.tinyd6 {
   @import "partial/trait-block";
   @import "partial/test-result";
 
@@ -30,3 +27,4 @@ body
 }
 
 @import "theme/tiny-cthulhu";
+@import "theme/tiny-dungeon";

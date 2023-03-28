@@ -7,7 +7,7 @@ export const registerGameSettings = function () {
     name: game.i18n.localize("tinyd6.settings.theme.name"),
     hint: game.i18n.localize("tinyd6.settings.theme.hint"),
     scope: "world",
-    config: false,
+    config: true,
     choices: localizeAll(CONFIG.tinyd6.themes),
     default: "tiny-dungeon",
     type: String,
@@ -36,7 +36,7 @@ export const registerGameSettings = function () {
     name: game.i18n.localize("tinyd6.settings.enableItemTracking.name"),
     hint: game.i18n.localize("tinyd6.settings.enableItemTracking.hint"),
     scope: "world",
-    config: false,
+    config: true,
     default: false,
     type: Boolean,
   });

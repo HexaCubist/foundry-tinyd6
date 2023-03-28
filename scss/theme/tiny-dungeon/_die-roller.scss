@@ -1,0 +1,13 @@
+&.die-roller
+{
+  @import "window-content";
+
+  button
+  {
+    background: $button-background;
+    color: $button-color;
+    line-height: 2.5rem;
+    font-size: 1.6rem;
+    border: 0;
+  }
+}
