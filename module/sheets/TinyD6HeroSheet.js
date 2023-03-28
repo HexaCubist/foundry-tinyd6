@@ -15,8 +15,8 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
     });
   }
 
-  getData() {
-    const context = super.getData();
+  async getData() {
+    const context = await super.getData();
 
     context.system.heritage = context.items.filter((item) => {
       return item.type === "heritage";
