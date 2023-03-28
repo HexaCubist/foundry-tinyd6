@@ -31,16 +31,16 @@ export default class TinyD6ActorSheet extends ActorSheet {
     );
 
     context.system.owner = this.actor.isOwner;
-    context.system.traits = context.system.items.filter((item) => {
+    context.system.traits = context.items.filter((item) => {
       return item.type === "trait";
     });
-    context.system.weapons = context.system.items.filter((item) => {
+    context.system.weapons = context.items.filter((item) => {
       return item.type === "weapon" && item.data.equipped;
     });
-    context.system.armor = context.system.items.filter((item) => {
+    context.system.armor = context.items.filter((item) => {
       return item.type === "armor" && item.data.equipped;
     });
-    context.system.gear = context.system.items.filter((item) => {
+    context.system.gear = context.items.filter((item) => {
       return item.type !== "trait" && item.type !== "heritage";
     });
 

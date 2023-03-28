@@ -18,7 +18,7 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
   getData() {
     const context = super.getData();
 
-    context.system.heritage = context.data.items.filter((item) => {
+    context.system.heritage = context.items.filter((item) => {
       return item.type === "heritage";
     })[0];
     context.system.xp.remaining =
@@ -26,7 +26,7 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
 
     context.system.armorTotal = 0;
     context.system.armor.forEach((item, n) => {
-      context.system.armorTotal += item.data.damageReduction;
+      context.system.armorTotal += item.system.damageReduction;
     });
 
     // Add roll data for TinyMCE editors.
