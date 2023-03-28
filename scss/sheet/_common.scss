@@ -1,103 +1,90 @@
-&.sheet
-{
-  & > section
-  {
+&.sheet {
+  & > section {
     font-size: 14pt;
   }
 
-  .help
-  {
+  .help {
     color: $gray-600;
     font-style: italic;
     font-size: 0.9rem;
   }
 }
 
-.editor
-{
-  & > [role=application]
-  {
+.editor {
+  height: 100%;
+  & > [role="application"] {
     min-height: 6.25rem;
   }
-  
-  & > .editor-content
-  {
+
+  & > .editor-content {
     min-height: 2.5rem;
   }
 }
 
 input,
 textarea,
-select
-{
+select {
   background-color: transparent;
   border: 0;
   font-size: 14pt;
   padding: 1px 0;
 
   &:hover,
-  &:focus
-  {
+  &:focus {
     padding: 1px 3px;
     background-color: $input-focus-background;
     border: 1px solid $input-focus-border;
   }
 }
 
-.hidden
-{
+.hidden {
   visibility: hidden;
   display: none;
 }
 
-textarea
-{
+textarea {
   resize: none;
 }
 
-h1,h2,h3,h4,h5,h6
-{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   border-bottom: 0;
 }
 
-.section-header
-{
+.section-header {
   background-color: $h1-background;
   color: $h1-text;
 
-  h1
-  {
+  h1 {
     @extend h1;
     font-size: 1.2rem;
   }
 
-  .item-add
-  {
+  .item-add {
     line-height: 2rem;
   }
 }
 
-.actor-items
-{
+.actor-items {
   list-style: none;
 
-  & > .actor-item
-  {
+  & > .actor-item {
     list-style-type: none;
     border-bottom: 1px solid $gray-400;
     margin-bottom: 0.5rem;
 
-    &:last-child
-    {
+    &:last-child {
       border-bottom: 0;
     }
   }
 }
 
-.character
-{
-  .property
-  {
+.character {
+  .property {
     @extend .health !optional;
     margin: toRem(8px) 0;
   }
