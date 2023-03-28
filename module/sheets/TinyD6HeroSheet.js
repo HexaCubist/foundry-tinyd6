@@ -82,7 +82,7 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
       });
     } else if (currentCorruption > 0) {
       this.actor.update({
-        _id: this.actor.data._id,
+        _id: this.actor._id,
         data: {
           corruptionThreshold: {
             value: currentCorruption - 1,
@@ -99,7 +99,7 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
     const currentProgress = parseInt(this.actor.system.advancement.value ?? 0);
     if (element.checked) {
       this.actor.update({
-        _id: this.actor.data._id,
+        _id: this.actor._id,
         data: {
           advancement: {
             value: currentProgress + 1,
@@ -108,7 +108,7 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
       });
     } else if (currentProgress > 0) {
       this.actor.update({
-        _id: this.actor.data._id,
+        _id: this.actor._id,
         data: {
           advancement: {
             value: currentProgress - 1,
