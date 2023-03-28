@@ -7,8 +7,8 @@
         <input name="system.corruptionThreshold" type="text" value="{{system.corruptionThreshold}}" placeholder="{{localize "tinyd6.heritage.corruptionThreshold"}}" dType="Number"/>
     </div>
     <h2 class="section-header">{{localize "tinyd6.sheet.description"}}</h2>
-    {{editor system.description target="system.description" button=true owner=owner editable=editable}}
+    {{editor system.description target="system.description" button=false editable=editable engine="prosemirror" collaborate=false}}
 
     <h2 class="section-header">{{localize "tinyd6.heritage.trait"}}</h2>
-    {{editor system.trait target="system.trait" button=true owner=owner editable=editable}}
+    {{editor system.trait target="system.trait" button=false editable=editable engine="prosemirror" collaborate=false}}
 </form>
