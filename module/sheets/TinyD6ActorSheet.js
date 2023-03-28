@@ -1,4 +1,5 @@
 import * as Dice from "../helpers/dice.js";
+import { TinyD6System } from "../tinyd6.js";
 
 export default class TinyD6ActorSheet extends ActorSheet {
   getData() {
@@ -9,30 +10,23 @@ export default class TinyD6ActorSheet extends ActorSheet {
     context.flags = this.actor.flags;
 
     context.config = CONFIG.tinyd6;
-    context.config.heritageHeaderPath = `tinyd6.actor.${game.settings.get(
-      "theme"
-    )}.heritage.header`;
-    context.config.characterHeaderPath = `tinyd6.actor.${game.settings.get(
-      "theme"
-    )}.character`;
-    context.config.heritageTraitPath = `tinyd6.actor.${game.settings.get(
-      "theme"
-    )}.heritage.traits`;
-    context.config.heritageDeleteTooltipPath = `tinyd6.actor.${game.settings.get(
-      "theme"
-    )}.heritage.delete`;
+    const theme = game.settings.get(TinyD6System.SYSTEM, "theme");
+    context.config.heritageHeaderPath = `tinyd6.actor.${theme}.heritage.header`;
+    context.config.characterHeaderPath = `tinyd6.actor.${theme}.character`;
+    context.config.heritageTraitPath = `tinyd6.actor.${theme}.heritage.traits`;
+    context.config.heritageDeleteTooltipPath = `tinyd6.actor.${theme}.heritage.delete`;
 
     // Determine optional element display based on settings
     context.config.enableCorruption = game.settings.get(
-      "tinyd6",
+      TinyD6System.SYSTEM,
       "enableCorruption"
     );
     context.config.enableDamageReduction = game.settings.get(
-      "tinyd6",
+      TinyD6System.SYSTEM,
       "enableDamageReduction"
     );
     context.config.advancementMethod = game.settings.get(
-      "tinyd6",
+      TinyD6System.SYSTEM,
       "enableAdvancement"
     );
 

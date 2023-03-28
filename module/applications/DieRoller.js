@@ -32,6 +32,7 @@ export default class DieRoller extends FormApplication {
 
     data.config = CONFIG.tinyd6;
     data.config.heritageHeaderPath = `tinyd6.actor.${game.settings.get(
+      TinyD6System.SYSTEM,
       "theme"
     )}.heritage.header`;
 
