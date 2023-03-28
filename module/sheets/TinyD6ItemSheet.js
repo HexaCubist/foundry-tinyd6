@@ -19,7 +19,7 @@ export default class TinyD6ItemSheet extends ItemSheet {
   getData() {
     const context = super.getData();
 
-    context.data.traits = {};
+    context.system.traits = {};
     context.config = CONFIG.tinyd6;
 
     //console.log("tinyd6 | ITEM DATA (after)", data);

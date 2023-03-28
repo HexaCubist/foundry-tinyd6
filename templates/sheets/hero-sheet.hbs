@@ -170,7 +170,7 @@
         </div>
         <div class="heritage-trait border-bottom">
             <h3>{{localize config.heritageTraitPath}}</h3>
-            {{{system.heritage.data.trait}}}
+            {{{system.heritage.system.trait}}}
         </div>
         <ul class="actor-items px-0">
             {{#each system.traits as |trait id|}}
@@ -189,19 +189,19 @@
                             <div class="d-flex">
                                 <h3 class="weapon-name">{{weapon.name}}</h3>
                                 <label class="light ml-auto">
-                                    <input type="checkbox" disabled{{#if (eq weapon.data.damageType "light")}} checked{{/if}}/>
+                                    <input type="checkbox" disabled{{#if (eq weapon.system.damageType "light")}} checked{{/if}}/>
                                     {{localize "tinyd6.weapon.lightShort"}}
                                 </label>
                                 <label class="heavy">
-                                    <input type="checkbox" disabled{{#if (eq weapon.data.damageType "heavy")}} checked{{/if}}/>
+                                    <input type="checkbox" disabled{{#if (eq weapon.system.damageType "heavy")}} checked{{/if}}/>
                                     {{localize "tinyd6.weapon.heavyShort"}}
                                 </label>
                                 <label class="ranged">
-                                    <input type="checkbox" disabled{{#if (eq weapon.data.group "melee")}} checked{{/if}}/>
+                                    <input type="checkbox" disabled{{#if (eq weapon.system.group "melee")}} checked{{/if}}/>
                                     {{localize "tinyd6.weapon.meleeShort"}}
                                 </label>
                                 <label class="ranged">
-                                    <input type="checkbox" disabled{{#if (eq weapon.data.group "ranged")}} checked{{/if}}/>
+                                    <input type="checkbox" disabled{{#if (eq weapon.system.group "ranged")}} checked{{/if}}/>
                                     {{localize "tinyd6.weapon.rangedShort"}}
                                 </label>
                             </div>

@@ -35,10 +35,10 @@ export default class TinyD6ActorSheet extends ActorSheet {
       return item.type === "trait";
     });
     context.system.weapons = context.items.filter((item) => {
-      return item.type === "weapon" && item.data.equipped;
+      return item.type === "weapon" && item.system.equipped;
     });
     context.system.armor = context.items.filter((item) => {
-      return item.type === "armor" && item.data.equipped;
+      return item.type === "armor" && item.system.equipped;
     });
     context.system.gear = context.items.filter((item) => {
       return item.type !== "trait" && item.type !== "heritage";
@@ -161,14 +161,14 @@ export default class TinyD6ActorSheet extends ActorSheet {
     event.preventDefault();
     let element = event.currentTarget;
     let itemId = element.closest("[data-item-id]").dataset.itemId;
-    return this.actor.data.items.get(itemId).delete();
+    return this.actor.items.get(itemId).delete();
   }
 
   _onItemShow(event) {
     event.preventDefault();
     let element = event.currentTarget;
     let itemId = element.closest("[data-item-id]").dataset.itemId;
-    let item = this.actor.data.items.get(itemId);
+    let item = this.actor.items.get(itemId);
 
     item.sheet.render(true);
   }
@@ -203,7 +203,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
     const currentDamage = parseInt(this.actor.system.wounds.value ?? 0);
     if (element.checked) {
       this.actor.update({
-        _id: this.actor.data._id,
+        _id: this.actor._id,
         data: {
           wounds: {
             value: currentDamage + 1,
@@ -215,7 +215,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
       });
     } else if (currentDamage > 0) {
       this.actor.update({
-        _id: this.actor.data._id,
+        _id: this.actor._id,
         data: {
           wounds: {
             value: currentDamage - 1,
