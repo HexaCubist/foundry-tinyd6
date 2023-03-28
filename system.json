@@ -2,22 +2,15 @@
   "name": "tinyd6",
   "title": "Tiny D6 (Unofficial)",
   "description": "Tiny D6 system module for Foundry VTT to facilitate playing Tiny D6 games such as Tiny Dungeon and Tiny Frontiers. Currently in Alpha so expect breaking changes in any update.",
-  "author": "architech99",
-  "authors": [
-    "architech99"
-  ],
+  "author": "architech99 with modifications by Zac",
+  "authors": ["architech99", "HexaCubist"],
   "flags": {},
-  "version": "0.3.0",
+  "version": "0.4.0",
   "minimumCoreVersion": "9",
-  "compatibleCoreVersion": "9",
+  "compatibleCoreVersion": "10",
   "scripts": [],
-  "esmodules": [
-    "module/tinyd6.js",
-    "module/settings.js"
-  ],
-  "styles": [
-    "css/tinyd6.css"
-  ],
+  "esmodules": ["module/tinyd6.js", "module/settings.js"],
+  "styles": ["css/tinyd6.css"],
   "languages": [
     {
       "lang": "en",
@@ -29,8 +22,8 @@
   "system": [],
   "dependencies": [],
   "socket": false,
-  "manifest": "https://gitlab.com/architech99/foundry-tinyd6/-/raw/master/system.json",
-  "download": "https://gitlab.com/architech99/foundry-tinyd6/-/archive/master/foundry-tinyd6-master.zip",
+  "manifest": "https://raw.githubusercontent.com/HexaCubist/foundry-tinyd6/master/system.json",
+  "download": "https://github.com/HexaCubist/foundry-tinyd6/archive/refs/heads/master.zip",
   "protected": false,
   "initiative": "2d6",
   "gridDistance": 5,
