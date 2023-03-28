@@ -2,8 +2,8 @@ import * as Dice from "../helpers/dice.js";
 import { TinyD6System } from "../tinyd6.js";
 
 export default class TinyD6ActorSheet extends ActorSheet {
-  getData() {
-    const context = super.getData();
+  async getData() {
+    const context = await super.getData();
 
     // Add the actor's data to context.data for easier access, as well as flags.
     context.system = this.actor.system;
@@ -44,6 +44,18 @@ export default class TinyD6ActorSheet extends ActorSheet {
       return item.type !== "trait" && item.type !== "heritage";
     });
 
+    // Biography HTML enrichment
+    context.rollData = context.actor.getRollData();
+    context.descriptionHTML = await TextEditor.enrichHTML(
+      context.system.description,
+      {
+        secrets: this.actor.isOwner,
+        rollData: context.rollData,
+        async: true,
+        relativeTo: this.actor,
+      }
+    );
+
     return context;
   }
 
@@ -77,56 +89,6 @@ export default class TinyD6ActorSheet extends ActorSheet {
   //     mce.on("change", (ev) => (editor.changed = true));
   //   });
   // }
-
-  /**
-   * Activate a TinyMCE editor instance present within the form
-   * @param div {HTMLElement}
-   * @private
-   */
-  _activateEditor(div) {
-    // Get the editor content div
-    const name = div.getAttribute("data-edit");
-    const button = div.nextElementSibling;
-    const hasButton = button && button.classList.contains("editor-edit");
-    const wrap = div.parentElement.parentElement;
-    const wc = $(div).parents(".window-content")[0];
-
-    // Determine the preferred editor height
-    const heights = [wrap.offsetHeight, wc ? wc.offsetHeight : null];
-    if (div.offsetHeight > 0) heights.push(div.offsetHeight);
-    let height = Math.min(...heights.filter((h) => Number.isFinite(h)));
-
-    // Get initial content
-    const initialContent = getProperty(this.object, name);
-    //console.log("tinyd6 | name: ", name);
-    //console.log("tinyd6 | initialContent:", initialContent);
-    const editorOptions = {
-      target: div,
-      height: height,
-      save_onsavecallback: (mce) => this.saveEditor(name),
-    };
-
-    // Add record to editors registry
-    this.editors[name] = {
-      target: name,
-      button: button,
-      hasButton: hasButton,
-      mce: null,
-      active: !hasButton,
-      changed: false,
-      options: editorOptions,
-      initial: initialContent,
-    };
-
-    // If we are using a toggle button, delay activation until it is clicked
-    if (hasButton)
-      button.onclick = (event) => {
-        button.style.display = "none";
-        this.activateEditor(name, editorOptions, initialContent);
-      };
-    // Otherwise activate immediately
-    else this.activateEditor(name, editorOptions, initialContent);
-  }
 
   async _onDieRoll(event) {
     console.log("tinyd6 | onDieRoll");

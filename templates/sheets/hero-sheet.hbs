@@ -38,7 +38,7 @@
         <div class="stat-values">
             <div class="description property">
                 <label class="border-bottom"><span>{{localize "tinyd6.actor.description"}}</span></label>
-                {{editor system.description target="system.description" button=true owner=owner editable=editable}}
+                {{editor descriptionHTML target="system.description" button=true owner=owner editable=editable engine="prosemirror" collaborate=false}}
             </div>
         </div>
     </section>
