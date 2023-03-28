@@ -9,10 +9,18 @@ export default class TinyD6ActorSheet extends ActorSheet {
     context.flags = this.actor.flags;
 
     context.config = CONFIG.tinyd6;
-    context.config.heritageHeaderPath = `tinyd6.actor.${context.config.theme}.heritage.header`;
-    context.config.characterHeaderPath = `tinyd6.actor.${context.config.theme}.character`;
-    context.config.heritageTraitPath = `tinyd6.actor.${context.config.theme}.heritage.traits`;
-    context.config.heritageDeleteTooltipPath = `tinyd6.actor.${context.config.theme}.heritage.delete`;
+    context.config.heritageHeaderPath = `tinyd6.actor.${game.settings.get(
+      "theme"
+    )}.heritage.header`;
+    context.config.characterHeaderPath = `tinyd6.actor.${game.settings.get(
+      "theme"
+    )}.character`;
+    context.config.heritageTraitPath = `tinyd6.actor.${game.settings.get(
+      "theme"
+    )}.heritage.traits`;
+    context.config.heritageDeleteTooltipPath = `tinyd6.actor.${game.settings.get(
+      "theme"
+    )}.heritage.delete`;
 
     // Determine optional element display based on settings
     context.config.enableCorruption = game.settings.get(
