@@ -24,17 +24,17 @@ export default class TinyD6ActorSheet extends ActorSheet {
       "enableAdvancement"
     );
 
-    data.data.data.owner = this.actor.isOwner;
-    data.data.data.traits = data.data.items.filter((item) => {
+    data.system.owner = this.actor.isOwner;
+    data.system.traits = data.data.items.filter((item) => {
       return item.type === "trait";
     });
-    data.data.data.weapons = data.data.items.filter((item) => {
+    data.system.weapons = data.data.items.filter((item) => {
       return item.type === "weapon" && item.data.equipped;
     });
-    data.data.data.armor = data.data.items.filter((item) => {
+    data.system.armor = data.data.items.filter((item) => {
       return item.type === "armor" && item.data.equipped;
     });
-    data.data.data.gear = data.data.items.filter((item) => {
+    data.system.gear = data.data.items.filter((item) => {
       return item.type !== "trait" && item.type !== "heritage";
     });
 
@@ -92,7 +92,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
     let height = Math.min(...heights.filter((h) => Number.isFinite(h)));
 
     // Get initial content
-    const initialContent = getProperty(this.object.data, name);
+    const initialContent = getProperty(this.object, name);
     //console.log("tinyd6 | name: ", name);
     //console.log("tinyd6 | initialContent:", initialContent);
     const editorOptions = {
@@ -186,7 +186,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
     return {
       _id: id,
       data: {
-        equipped: !item.data.data.equipped,
+        equipped: !item.system.equipped,
       },
     };
   }
@@ -195,7 +195,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
     event.preventDefault();
 
     const element = event.currentTarget;
-    const currentDamage = parseInt(this.actor.data.data.wounds.value ?? 0);
+    const currentDamage = parseInt(this.actor.system.wounds.value ?? 0);
     if (element.checked) {
       this.actor.update({
         _id: this.actor.data._id,
