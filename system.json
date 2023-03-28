@@ -5,9 +5,12 @@
   "author": "architech99 with modifications by Zac",
   "authors": ["architech99", "HexaCubist"],
   "flags": {},
-  "version": "0.4.3",
-  "minimumCoreVersion": "9",
-  "compatibleCoreVersion": "10",
+  "version": "0.4.4",
+  "compatibility": {
+    "minimum": 10,
+    "verified": "10.287",
+    "maximum": 10
+  },
   "scripts": [],
   "esmodules": ["module/tinyd6.js", "module/settings.js"],
   "styles": ["css/tinyd6.css"],

@@ -28,6 +28,9 @@ export default class TinyD6HeroSheet extends TinyD6ActorSheet {
       data.system.armorTotal += item.data.damageReduction;
     });
 
+    // Add roll data for TinyMCE editors.
+    context.rollData = context.actor.getRollData();
+
     return data;
   }
 

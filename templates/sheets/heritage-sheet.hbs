@@ -2,13 +2,13 @@
     {{> "systems/tinyd6/templates/partials/item-header.hbs" placeholder='tinyd6.trait.name'}}
     <div class="d-flex">
         <label class="text-nowrap mr-2">{{localize "tinyd6.heritage.startingHealth"}}</label>
-        <input name="data.startingHealth" type="text" value="{{data.data.startingHealth}}" placeholder="{{localize "tinyd6.heritage.startingHealth"}}" dType="Number"/>
+        <input name="data.startingHealth" type="text" value="{{system.startingHealth}}" placeholder="{{localize "tinyd6.heritage.startingHealth"}}" dType="Number"/>
         <label class="text-nowrap mx-2">{{localize "tinyd6.heritage.corruptionThreshold"}}</label>
-        <input name="data.corruptionThreshold" type="text" value="{{data.data.corruptionThreshold}}" placeholder="{{localize "tinyd6.heritage.corruptionThreshold"}}" dType="Number"/>
+        <input name="data.corruptionThreshold" type="text" value="{{system.corruptionThreshold}}" placeholder="{{localize "tinyd6.heritage.corruptionThreshold"}}" dType="Number"/>
     </div>
     <h2 class="section-header">{{localize "tinyd6.sheet.description"}}</h2>
-    {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+    {{editor system.description target="data.description" button=true owner=owner editable=editable}}
 
     <h2 class="section-header">{{localize "tinyd6.heritage.trait"}}</h2>
-    {{editor content=data.data.trait target="data.trait" button=true owner=owner editable=editable}}
+    {{editor system.trait target="data.trait" button=true owner=owner editable=editable}}
 </form>

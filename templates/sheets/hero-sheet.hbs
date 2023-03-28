@@ -13,22 +13,22 @@
                     <label><span>{{localize "tinyd6.actor.name"}}</span></label>
                     <input name="name" type="text" class="text-right" value="{{actor.name}}" placeholder="{{localize "tinyd6.actor.name"}}"/>
                 </div>
-                <div class="heritage property d-flex justify-content-between border-bottom" data-item-id="{{data.data.heritage._id}}">
+                <div class="heritage property d-flex justify-content-between border-bottom" data-item-id="{{system.heritage._id}}">
                     <label><span>{{localize config.heritageHeaderPath}}</span></label>
                     <div class="heritage-value ml-auto">
-                        <a class="item-show d-inline-block h-100">{{data.data.heritage.name}}</a>
+                        <a class="item-show d-inline-block h-100">{{system.heritage.name}}</a>
                     </div>
-                    {{#if data.data.heritage}}
+                    {{#if system.heritage}}
                         <a class="item-control item-delete ml-2 my-auto" title="{{localize config.heritageDeleteTooltipPath}}"><i class="fas fa-times"></i></a>
                     {{/if}}
                 </div>
                 <div class="family-trade property d-flex justify-content-between border-bottom">
                     <label class="text-nowrap"><span>{{localize "tinyd6.actor.familyTrade"}}</span></label>
-                    <input name="data.familyTrade" type="text" class="text-right" value="{{data.data.familyTrade}}" placeholder="{{localize "tinyd6.actor.familyTrade"}}"/>
+                    <input name="data.familyTrade" type="text" class="text-right" value="{{system.familyTrade}}" placeholder="{{localize "tinyd6.actor.familyTrade"}}"/>
                 </div>
                 <div class="belief property">
                     <label class="border-bottom"><span>{{localize "tinyd6.actor.belief"}}</span></label>
-                    <input name="data.belief" type="text" value="{{data.data.belief}}" placeholder="{{localize "tinyd6.actor.belief"}}"/>
+                    <input name="data.belief" type="text" value="{{system.belief}}" placeholder="{{localize "tinyd6.actor.belief"}}"/>
                 </div>
             </div>
             <div class="col-3 pt-3 text-center">
@@ -51,15 +51,15 @@
                     <span class="d-flex justify-content-end ml-auto">
                         <span class="mr-2">{{localize "tinyd6.actor.wounds.max"}}</span>
                         {{#if owner}}
-                            <input name="data.wounds.max" type="text" class="mx-2" style="width: 10%;" value="{{data.data.wounds.max}}" dType="Number"/>
+                            <input name="data.wounds.max" type="text" class="mx-2" style="width: 10%;" value="{{system.wounds.max}}" dType="Number"/>
                         {{^}}
-                            <span>{{data.data.wounds.max}}</span>
+                            <span>{{system.wounds.max}}</span>
                         {{/if}}
                     </span>
                 </div>
                 <div class="health-meter">
-                    {{#times data.data.wounds.max}}
-                        <input type="checkbox" value="1" class="health-box d-inline-block" {{#if (lt . ../data.data.wounds.value)}}checked{{/if}} />
+                    {{#times system.wounds.max}}
+                        <input type="checkbox" value="1" class="health-box d-inline-block" {{#if (lt . ../system.wounds.value)}}checked{{/if}} />
                     {{/times}}
                 </div>
                 {{#if owner}}
@@ -73,15 +73,15 @@
                         <span class="d-flex justify-content-end ml-auto">
                         <span class="mr-2">{{localize "tinyd6.actor.corruption.max"}}</span>
                             {{#if owner}}
-                                <input name="data.corruptionThreshold.max" type="text" class="mx-2" style="width: 10%;" value="{{data.data.corruptionThreshold.max}}" dType="Number"/>
+                                <input name="data.corruptionThreshold.max" type="text" class="mx-2" style="width: 10%;" value="{{system.corruptionThreshold.max}}" dType="Number"/>
                             {{^}}
-                                <span>{{data.data.corruptionThreshold.max}}</span>
+                                <span>{{system.corruptionThreshold.max}}</span>
                             {{/if}}
                     </span>
                     </div>
                     <div class="corruption-meter">
-                        {{#times data.data.corruptionThreshold.max}}
-                            <input type="checkbox" value="1" class="corruption-box d-inline-block" {{#if (lt . ../data.data.corruptionThreshold.value)}}checked{{/if}} />
+                        {{#times system.corruptionThreshold.max}}
+                            <input type="checkbox" value="1" class="corruption-box d-inline-block" {{#if (lt . ../system.corruptionThreshold.value)}}checked{{/if}} />
                         {{/times}}
                     </div>
                     {{#if owner}}
@@ -95,16 +95,16 @@
                         <h3 class="section-header">{{localize "tinyd6.actor.xp.header"}}</h3>
                         <div class="stat-values property d-flex justify-content-between border-bottom">
                             <label class="mr-2"><span>{{localize "tinyd6.actor.xp.total"}}</span></label>
-                            <input name="data.xp.max" class="text-right" type="text" value="{{data.data.xp.max}}" placeholder="{{localize "tinyd6.actor.xp.total"}}" dType="Number"/>
+                            <input name="data.xp.max" class="text-right" type="text" value="{{system.xp.max}}" placeholder="{{localize "tinyd6.actor.xp.total"}}" dType="Number"/>
                         </div>
                         <div class="stat-values property d-flex justify-content-between border-bottom">
                             <label class="mr-2"><span>{{localize "tinyd6.actor.xp.spent"}}</span></label>
-                            <input name="data.xp.spent" class="text-right" type="text" value="{{data.data.xp.spent}}" placeholder="{{localize "tinyd6.actor.xp.spent"}}" dType="Number"/>
+                            <input name="data.xp.spent" class="text-right" type="text" value="{{system.xp.spent}}" placeholder="{{localize "tinyd6.actor.xp.spent"}}" dType="Number"/>
                         </div>
                         <div class="stat-values property d-flex justify-content-between border-bottom">
                             <label class="mr-2"><span>{{localize "tinyd6.actor.xp.remaining"}}</span></label>
                             <span class="d-block">
-                                {{data.data.xp.remaining}}
+                                {{system.xp.remaining}}
                             </span>
                         </div>
                     </section>
@@ -115,8 +115,8 @@
                     <section class="experience d-flex flex-column justify-content-between">
                         <h3 class="section-header">{{localize "tinyd6.actor.xp.progression"}}</h3>
                         <div class="d-flex">
-                            {{#times data.data.advancement.max}}
-                                <input type="checkbox" value="1" class="advancement-progress-box d-inline-block" {{#if (lt . ../data.data.advancement.value)}}checked{{/if}} />
+                            {{#times system.advancement.max}}
+                                <input type="checkbox" value="1" class="advancement-progress-box d-inline-block" {{#if (lt . ../system.advancement.value)}}checked{{/if}} />
                             {{/times}}
                         </div>
                     </section>
@@ -130,25 +130,25 @@
         <div class="d-flex justify-content-start">
             <div class="light mr-4">
                 <label>
-                    <input type="checkbox" name="data.proficiencies.lightMelee" {{checked data.data.proficiencies.lightMelee}}/>
+                    <input type="checkbox" name="data.proficiencies.lightMelee" {{checked system.proficiencies.lightMelee}}/>
                     {{localize "tinyd6.weapon.lightMelee"}}
                 </label>
             </div>
             <div class="heavy mr-4">
                 <label>
-                    <input type="checkbox" name="data.proficiencies.heavyMelee" {{checked data.data.proficiencies.heavyMelee}}/>
+                    <input type="checkbox" name="data.proficiencies.heavyMelee" {{checked system.proficiencies.heavyMelee}}/>
                     {{localize "tinyd6.weapon.heavyMelee"}}
                 </label>
             </div>
             <div class="ranged mr-4">
                 <label>
-                    <input type="checkbox" name="data.proficiencies.lightRanged" {{checked data.data.proficiencies.lightRanged}}/>
+                    <input type="checkbox" name="data.proficiencies.lightRanged" {{checked system.proficiencies.lightRanged}}/>
                     {{localize "tinyd6.weapon.lightRanged"}}
                 </label>
             </div>
             <div class="ranged mr-4">
                 <label>
-                    <input type="checkbox" name="data.proficiencies.heavyRanged" {{checked data.data.proficiencies.heavyRanged}}/>
+                    <input type="checkbox" name="data.proficiencies.heavyRanged" {{checked system.proficiencies.heavyRanged}}/>
                     {{localize "tinyd6.weapon.heavyRanged"}}
                 </label>
             </div>
@@ -156,7 +156,7 @@
         <div class="d-flex justify-content-start mt-2">
             <label class="mr-2"><h3 class="section-header">{{localize "tinyd6.actor.proficiencies.mastered"}}</h3></label>
             <span class="border-bottom w-100">
-                <input name="data.proficiencies.masteredWeapons" type="text" value="{{data.data.proficiencies.masteredWeapons}}" placeholder="{{localize "tinyd6.sheet.none"}}"/>
+                <input name="data.proficiencies.masteredWeapons" type="text" value="{{system.proficiencies.masteredWeapons}}" placeholder="{{localize "tinyd6.sheet.none"}}"/>
             </span>
         </div>
     </section>
@@ -170,10 +170,10 @@
         </div>
         <div class="heritage-trait border-bottom">
             <h3>{{localize config.heritageTraitPath}}</h3>
-            {{{data.data.heritage.data.trait}}}
+            {{{system.heritage.data.trait}}}
         </div>
         <ul class="actor-items px-0">
-            {{#each data.data.traits as |trait id|}}
+            {{#each system.traits as |trait id|}}
                 {{> "systems/tinyd6/templates/partials/trait-block.hbs" trait}}
             {{/each}}
         </ul>
@@ -184,7 +184,7 @@
         <section class="equipment">
             <div class="row">
                 <div class="col">
-                    {{#each data.data.weapons as |weapon id|}}
+                    {{#each system.weapons as |weapon id|}}
                         <div class="equipped-weapon">
                             <div class="d-flex">
                                 <h3 class="weapon-name">{{weapon.name}}</h3>
@@ -209,18 +209,18 @@
                     {{/each}}
                 </div>
                 <div class="col-4 equipped-armor">
-                    <span class="total-armor">{{#if config.enableDamageReduction}}{{data.data.armorTotal}}{{^}}&nbsp;{{/if}}</span>
-                    {{#each data.data.armor as |armor id|}}
+                    <span class="total-armor">{{#if config.enableDamageReduction}}{{system.armorTotal}}{{^}}&nbsp;{{/if}}</span>
+                    {{#each system.armor as |armor id|}}
                         <span>{{armor.name}}</span>
                     {{/each}}
-                    {{#unless data.data.armor}}<span>{{localize "tinyd6.armor.none"}}</span>{{/unless}}
+                    {{#unless system.armor}}<span>{{localize "tinyd6.armor.none"}}</span>{{/unless}}
                 </div>
             </div>
         </section>
 
         <section class="owned-items">
             <div class="row">
-                {{#each data.data.gear as |gearItem id|}}
+                {{#each system.gear as |gearItem id|}}
                     {{> "systems/tinyd6/templates/partials/inventory-card.hbs" gearItem=gearItem tagName="div" classes="col-4" }}
                 {{/each}}
             </div>

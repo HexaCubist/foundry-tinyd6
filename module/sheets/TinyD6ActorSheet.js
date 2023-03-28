@@ -48,6 +48,7 @@ export default class TinyD6ActorSheet extends ActorSheet {
   }
 
   activateListeners(html) {
+    super.activateListeners(html);
     console.log("tinyd6 | activating listeners");
     console.log("tinyd6 | html", html.find(".roll-dice"));
 
@@ -61,23 +62,21 @@ export default class TinyD6ActorSheet extends ActorSheet {
     html
       .find(".health-box")
       .on("click change", this._setCurrentDamage.bind(this));
-
-    super.activateListeners(html);
   }
 
-  activateEditor(name, options = {}, initialContent = "") {
-    const editor = this.editors[name];
-    if (!editor) throw new Error(`${name} is not a registered editor name!`);
-    options = mergeObject(editor.options, options);
-    options.height = options.target.offsetHeight;
-    TextEditor.create(options, initialContent || editor.initial).then((mce) => {
-      editor.mce = mce;
-      editor.changed = false;
-      editor.active = true;
-      mce.focus();
-      mce.on("change", (ev) => (editor.changed = true));
-    });
-  }
+  // activateEditor(name, options = {}, initialContent = "") {
+  //   const editor = this.editors[name];
+  //   if (!editor) throw new Error(`${name} is not a registered editor name!`);
+  //   options = mergeObject(editor.options, options);
+  //   options.height = options.target.offsetHeight;
+  //   TextEditor.create(options, initialContent || editor.initial).then((mce) => {
+  //     editor.mce = mce;
+  //     editor.changed = false;
+  //     editor.active = true;
+  //     mce.focus();
+  //     mce.on("change", (ev) => (editor.changed = true));
+  //   });
+  // }
 
   /**
    * Activate a TinyMCE editor instance present within the form
