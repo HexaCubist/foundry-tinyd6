@@ -8,15 +8,15 @@
         </tr>
         <tr>
             <td class="text-nowrap">
-                <select name="data.damageType">
-                    {{#select data.data.damageType}}
+                <select name="system.damageType">
+                    {{#select system.damageType}}
                         {{#each config.weaponTypes as |name type|}}
                             <option value="{{type}}">{{localize name}}</option>
                         {{/each}}
                     {{/select}}
                 </select>
-                <select name="data.group">
-                    {{#select data.data.group}}
+                <select name="system.group">
+                    {{#select system.group}}
                         {{#each config.weaponCategories as |name type|}}
                             <option value="{{type}}">{{localize name}}</option>
                         {{/each}}
@@ -24,12 +24,12 @@
                 </select>
             </td>
             <td>
-                <input type="text" class="text-center" name="data.damage" value="{{data.data.damage}}" dType="Number"/>
+                <input type="text" class="text-center" name="system.damage" value="{{system.damage}}" dType="Number"/>
             </td>
             <td>
-                <input type="text" class="text-center" name="data.slots" value="{{data.data.slots}}" dType="Number"/>
+                <input type="text" class="text-center" name="system.slots" value="{{system.slots}}" dType="Number"/>
             </td>
         </tr>
     </table>
-    {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+    {{editor system.description target="system.description" button=true owner=owner editable=editable}}
 </form>

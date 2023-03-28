@@ -10,7 +10,7 @@
                 </div>
                 <div class="description property">
                     <label class="border-bottom"><span>{{localize "tinyd6.actor.description"}}</span></label>
-                    {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+                    {{editor system.description target="system.description" button=true owner=owner editable=editable}}
                 </div>
 
                 <section class="trauma">
@@ -19,17 +19,17 @@
                         <span class="d-flex justify-content-end ml-auto">
                         <span class="mr-2">{{localize "tinyd6.actor.wounds.max"}}</span>
                             {{#if owner}}
-                                <input name="data.wounds.max" type="text" class="mx-2" style="width: 10%;"
-                                       value="{{data.data.wounds.max}}" dType="Number"/>
+                                <input name="system.wounds.max" type="text" class="mx-2" style="width: 10%;"
+                                       value="{{system.wounds.max}}" dType="Number"/>
                             {{^}}
-                                <span>{{data.data.wounds.max}}</span>
+                                <span>{{system.wounds.max}}</span>
                             {{/if}}
                         </span>
                     </div>
                     <div class="health-meter">
-                        {{#times data.data.wounds.max}}
+                        {{#times system.wounds.max}}
                             <input type="checkbox" value="1" class="health-box d-inline-block"
-                                   {{#if (lt . ../data.data.wounds.value)}}checked{{/if}} />
+                                   {{#if (lt . ../system.wounds.value)}}checked{{/if}} />
                         {{/times}}
                     </div>
                     {{#if owner}}
@@ -48,8 +48,8 @@
                             <label class="border-bottom d-flex justify-content-between">
                                 <span>{{localize "tinyd6.actor.corruption.test"}}</span>
                             </label>
-                            <select name="data.corruptionTest" class="w-100">
-                                {{#select data.data.corruptionTest}}
+                            <select name="system.corruptionTest" class="w-100">
+                                {{#select system.corruptionTest}}
                                     {{#each config.corruptionTests as |name type|}}
                                         <option value="{{type}}">{{localize name}}</option>
                                     {{/each}}
@@ -70,7 +70,7 @@
                             </label>
                         </div>
                         <ul class="actor-items px-0">
-                            {{#each data.data.traits as |trait id|}}
+                            {{#each system.traits as |trait id|}}
                                 {{> "systems/tinyd6/templates/partials/trait-block.hbs" trait}}
                             {{/each}}
                         </ul>
